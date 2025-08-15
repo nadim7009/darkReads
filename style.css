@@ -55,6 +55,19 @@ body {
   flex-direction: column;
 }
 
+ .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-alt);
@@ -3197,4 +3210,5 @@ h1, h2, h3, h4, .display-1, .display-2, .display-3, .display-4 {
         padding: 1.5rem;
     }
 }
+
 
