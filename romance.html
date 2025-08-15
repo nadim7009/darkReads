@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romance Books | DarkReads</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+<!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-orange">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-book-open me-2"></i>DarkReads
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">Book Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">My Bookshelf</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="author.html">Author</a>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="coming_soon.html">Coming Soon</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-bs-toggle="dropdown">
+                            Genres
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="thriller.html">Thriller</a></li>
+                            <li><a class="dropdown-item" href="mystry.html">Mystery</a></li>
+                            <li><a class="dropdown-item" href="romance.html">Romance</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="allGenres.html">All Genres</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Romance Hero Section with Floral Elements -->
+    <section class="genre-page-hero romance-hero py-5">
+        <div class="floral-overlay"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-3">
+                            <span class="text-romance">Romance</span>
+                        </h1>
+                        <p class="lead">Where hearts collide and love stories blossom</p>
+                        
+                        <!-- Romantic Stats with Icons -->
+                        <div class="genre-stats d-flex gap-4 mt-4">
+                            <div class="stat-item" data-count="243">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">
+                                    <i class="fas fa-book-open me-2"></i>Books
+                                </span>
+                            </div>
+                            <div class="stat-item" data-count="52">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">
+                                    <i class="fas fa-heart me-2"></i>New This Month
+                                </span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label">
+                                    <i class="fas fa-kiss-wink-heart me-2"></i>Happy Endings
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Romance Meter -->
+                        <div class="romance-meter mt-4">
+                            <h6 class="meter-title">Today's Romance Mood: <span>Passionate</span></h6>
+                            <div class="progress">
+                                <div class="progress-bar bg-romance" style="width: 85%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-1">
+                                <small>Sweet</small>
+                                <small>Steamy</small>
+                                <small>Swoonworthy</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="download (12).jpg" alt="Romance Icon" class="img-fluid genre-icon heartbeat">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Filter Section with Romance Options -->
+    <section class="book-filter py-4 bg-darker">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h3 class="filter-title mb-0">
+                        <i class="fas fa-filter me-2"></i>Find Your Perfect Read
+                    </h3>
+                </div>
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap gap-3">
+                        <select class="form-select dark-select">
+                            <option>Sort By: Most Romantic</option>
+                            <option>Newest Releases</option>
+                            <option>Top Rated</option>
+                            <option>Most Swoonworthy</option>
+                        </select>
+                        <select class="form-select dark-select">
+                            <option>All Subgenres</option>
+                            <option>Contemporary Romance</option>
+                            <option>Historical Romance</option>
+                            <option>Paranormal Romance</option>
+                            <option>Romantic Comedy</option>
+                            <option>Dark Romance</option>
+                        </select>
+                        <select class="form-select dark-select">
+                            <option>Any Heat Level</option>
+                            <option>Sweet (Closed Door)</option>
+                            <option>Steamy (Open Door)</option>
+                            <option>Sizzling (Explicit)</option>
+                        </select>
+                        <button class="btn btn-romance">
+                            <i class="fas fa-heart me-1"></i>Find Love
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Listing Section with Romance Categories -->
+    <section class="genre-books py-5">
+        <div class="container">
+            <!-- Romance Category Tabs -->
+            <ul class="nav nav-tabs romance-tabs mb-4" id="romanceTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#featured-tab">
+                        <i class="fas fa-star me-2"></i>Featured Romances
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#trending-tab">
+                        <i class="fas fa-fire me-2"></i>Trending Now
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#classics-tab">
+                        <i class="fas fa-gem me-2"></i>Timeless Classics
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="romanceTabContent">
+                <!-- Featured Romances Tab -->
+                <div class="tab-pane fade show active" id="featured-tab">
+                    <div class="row g-4">
+                        <!-- Book 1 - With Romance Badge -->
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="book-card h-100 romance-featured">
+                                <div class="book-badge">Reader's Choice</div>
+                                <div class="heat-level" data-level="steamy">
+                                    <i class="fas fa-fire"></i> Steamy
+                                </div>
+                                <img src="download (13).jpg" 
+                                     alt="The Hating Game" 
+                                     class="book-cover">
+                                <div class="book-info">
+                                    <h3 class="book-title">The Hating Game</h3>
+                                    <p class="book-author">Sally Thorne</p>
+                                    <div class="book-rating">
+                                        <span class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </span>
+                                        <span class="rating-value">4.5</span>
+                                        <span class="romance-stats">92% loved it</span>
+                                    </div>
+                                    <div class="book-tropes">
+                                        <span class="trope-badge">Enemies to Lovers</span>
+                                        <span class="trope-badge">Office Romance</span>
+                                    </div>
+                                    <div class="book-actions mt-3">
+                                        <a href="#" class="btn btn-sm btn-outline-romance">
+                                            <i class="fas fa-bookmark me-1"></i>Save
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-romance">
+                                            <i class="fas fa-heart me-1"></i>Read
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Book 2 - With New Badge -->
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="book-card h-100 romance-new">
+                                <div class="book-badge">New Release</div>
+                                <div class="heat-level" data-level="sweet">
+                                    <i class="fas fa-heart"></i> Sweet
+                                </div>
+                                <img src="download (14).jpg" 
+                                     alt="Beach Read" 
+                                     class="book-cover">
+                                <div class="book-info">
+                                    <h3 class="book-title">Beach Read</h3>
+                                    <p class="book-author">Emily Henry</p>
+                                    <div class="book-rating">
+                                        <span class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <span class="rating-value">4.8</span>
+                                        <span class="romance-stats">97% loved it</span>
+                                    </div>
+                                    <div class="book-tropes">
+                                        <span class="trope-badge">Writers</span>
+                                        <span class="trope-badge">Summer Romance</span>
+                                    </div>
+                                    <div class="book-actions mt-3">
+                                        <a href="#" class="btn btn-sm btn-outline-romance">
+                                            <i class="fas fa-bookmark me-1"></i>Save
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-romance">
+                                            <i class="fas fa-heart me-1"></i>Read
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- More books... -->
+                    </div>
+                </div>
+                
+                <!-- Trending Now Tab -->
+                <div class="tab-pane fade" id="trending-tab">
+                    <!-- Trending romance books -->
+                </div>
+                
+                <!-- Timeless Classics Tab -->
+                <div class="tab-pane fade" id="classics-tab">
+                    <!-- Classic romance books -->
+                </div>
+            </div>
+            
+            <!-- Pagination with Romance Theme -->
+            <nav class="mt-5">
+                <ul class="pagination justify-content-center romance-pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Popular Romance Authors Section -->
+    <section class="genre-authors py-5 bg-darker">
+        <div class="container">
+            <h2 class="section-title mb-5">
+                <i class="fas fa-feather-alt me-3"></i>Beloved Romance Authors
+            </h2>
+            
+            <div class="row g-4">
+                <!-- Author 1 - With Romance Style -->
+                <div class="col-6 col-md-3">
+                    <div class="author-card romance-author">
+                        <div class="author-photo-wrapper">
+                            <img src="download (15).jpg" 
+                                 alt="Colleen Hoover" 
+                                 class="author-photo">
+                            <div class="author-signature">
+                                <img src="download.png" alt="Signature">
+                            </div>
+                        </div>
+                        <div class="author-info">
+                            <h3 class="author-name">Colleen Hoover</h3>
+                            <p class="author-stats">Contemporary · Emotional</p>
+                            <div class="author-books-preview">
+                                <img src="download (16).jpg" alt="Book 1">
+                                <img src="download (17).jpg" alt="Book 2">
+                                <span>+22 more</span>
+                            </div>
+                            <button class="btn btn-sm btn-romance mt-2 w-100">
+                                <i class="fas fa-heart me-1"></i> Follow
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Author 2 - With Bestseller Badge -->
+                <div class="col-6 col-md-3">
+                    <div class="author-card romance-author">
+                        <div class="author-photo-wrapper">
+                            <img src="download (18).jpg" 
+                                 alt="Jane Austen" 
+                                 class="author-photo">
+                            <div class="author-badge">Classic</div>
+                        </div>
+                        <div class="author-info">
+                            <h3 class="author-name">Jane Austen</h3>
+                            <p class="author-stats">Historical · Witty</p>
+                            <div class="author-books-preview">
+                                <img src="download (19).jpg" alt="Book 1">
+                                <img src="download (20).jpg" alt="Book 2">
+                                <span>+6 more</span>
+                            </div>
+                            <button class="btn btn-sm btn-outline-romance mt-2 w-100">
+                                <i class="fas fa-book me-1"></i> Read
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More authors... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Romance Quote Section -->
+    <section class="romance-quote py-5">
+        <div class="container">
+            <div class="quote-card">
+                <div class="quote-text">
+                    <i class="fas fa-quote-left"></i>
+                    <p>It was a million tiny little things that, when you added them all up, they meant we were supposed to be together... and I knew it.</p>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <div class="quote-author">— The Notebook, Nicholas Sparks</div>
+                <div class="quote-floral"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Romance Newsletter Section -->
+    <section class="romance-newsletter py-5 bg-darker">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="newsletter-content">
+                        <h2 class="newsletter-title">
+                            <i class="fas fa-envelope me-3"></i>Get Weekly Romance Picks
+                        </h2>
+                        <p class="newsletter-text">
+                            Join our community of romance lovers and receive handpicked recommendations, 
+                            author interviews, and exclusive content straight to your inbox.
+                        </p>
+                        <ul class="newsletter-benefits">
+                            <li><i class="fas fa-heart"></i> First look at new releases</li>
+                            <li><i class="fas fa-bookmark"></i> Curated reading lists</li>
+                            <li><i class="fas fa-gift"></i> Exclusive giveaways</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form class="newsletter-form">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select">
+                                <option>Your Favorite Subgenre</option>
+                                <option>Contemporary Romance</option>
+                                <option>Historical Romance</option>
+                                <option>Paranormal Romance</option>
+                                <option>Romantic Comedy</option>
+                                <option>All of the Above</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-romance w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Send Me Love Stories
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Consistent with other sections) -->
+    <footer class="site-footer">
+        <!-- Your footer code -->
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Romance JS -->
+    <script src="../js/romance.js"></script>
+    <script>
+        // Animated counter for stats
+        document.addEventListener('DOMContentLoaded', function() {
+            // Counter animation
+            const counters = document.querySelectorAll('.stat-item[data-count]');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.querySelector('.stat-number').innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    const updateCount = () => {
+                        const current = +counter.querySelector('.stat-number').innerText;
+                        const inc = Math.ceil(target / speed);
+                        if (current < target) {
+                            counter.querySelector('.stat-number').innerText = Math.min(current + inc, target);
+                            setTimeout(updateCount, 1);
+                        }
+                    };
+                    updateCount();
+                }
+            });
+
+            // Romance mood randomizer (for demo purposes)
+            const moods = ["Sweet", "Playful", "Passionate", "Emotional", "Swoonworthy"];
+            const intensities = [30, 55, 70, 85, 95];
+            const randomIndex = Math.floor(Math.random() * moods.length);
+            
+            document.querySelector('.romance-meter span').textContent = moods[randomIndex];
+            document.querySelector('.romance-meter .progress-bar').style.width = `${intensities[randomIndex]}%`;
+        });
+    </script>
+</body>
+</html>

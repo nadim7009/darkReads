@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Genres | DarkReads</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark-orange">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-book-open me-2"></i>DarkReads
+            </a>
+           
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">Book Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">My Bookshelf</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="author.html">Author</a>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="coming_soon.html">Coming Soon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="genres.html">Genres</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-bs-toggle="dropdown">
+                            Genres
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="thriller.html">Thriller</a></li>
+                            <li><a class="dropdown-item" href="mystry.html">Mystery</a></li>
+                            <li><a class="dropdown-item" href="romance.html">Romance</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="allGenres.html">All Genres</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Genre Hero Section -->
+    <section class="genre-hero py-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Explore Genres</h1>
+            <p class="lead mb-5">Discover books tailored to your reading preferences</p>
+        </div>
+    </section>
+
+    <!-- Main Genre Grid -->
+    <main class="genre-main py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Thriller -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="thriller.html" class="genre-card thriller">
+                        <div class="genre-content">
+                            <h2>Thriller</h2>
+                            <p>Heart-pounding suspense and tension</p>
+                            <span class="book-count">127 books</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Mystery -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="genre-mystery.html" class="genre-card mystery">
+                        <div class="genre-content">
+                            <h2>Mystery</h2>
+                            <p>Puzzling crimes and clever detectives</p>
+                            <span class="book-count">98 books</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Romance -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="genre-romance.html" class="genre-card romance">
+                        <div class="genre-content">
+                            <h2>Romance</h2>
+                            <p>Love stories that warm the heart</p>
+                            <span class="book-count">156 books</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Horror -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="genre-horror.html" class="genre-card horror">
+                        <div class="genre-content">
+                            <h2>Horror</h2>
+                            <p>Chilling tales to keep you up at night</p>
+                            <span class="book-count">84 books</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Fantasy -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="genre-fantasy.html" class="genre-card fantasy">
+                        <div class="genre-content">
+                            <h2>Fantasy</h2>
+                            <p>Magical worlds and epic adventures</p>
+                            <span class="book-count">112 books</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Science Fiction -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="genre-scifi.html" class="genre-card scifi">
+                        <div class="genre-content">
+                            <h2>Science Fiction</h2>
+                            <p>Futuristic technology and space exploration</p>
+                            <span class="book-count">76 books</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+  
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/genres.js"></script>
+</body>
+</html>

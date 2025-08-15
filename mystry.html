@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery Books | DarkReads</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css"> <!-- Separate mystery-specific styles -->
+</head>
+<body class="dark-theme">
+   <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-orange">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-book-open me-2"></i>DarkReads
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">Book Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">My Bookshelf</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="author.html">Author</a>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="coming_soon.html">Coming Soon</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-bs-toggle="dropdown">
+                            Genres
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="thriller.html">Thriller</a></li>
+                            <li><a class="dropdown-item" href="mystry.html">Mystery</a></li>
+                            <li><a class="dropdown-item" href="romance.html">Romance</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="allGenres.html">All Genres</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Mystery Hero Section with Parallax Effect -->
+    <section class="genre-page-hero mystery-hero py-5">
+        <div class="parallax-bg" data-parallax="scroll" data-image-src=""></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-3">
+                            <span class="text-highlight">Mystery</span>
+                        </h1>
+                        <p class="lead">Unravel enigmatic puzzles where every clue leads deeper into the unknown</p>
+                        
+                        <!-- Interactive Mystery Stats -->
+                        <div class="genre-stats d-flex gap-4 mt-4">
+                            <div class="stat-item" data-count="189">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">Books</span>
+                            </div>
+                            <div class="stat-item" data-count="37">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">New This Month</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">85%</span>
+                                <span class="stat-label">Unsolved Cases</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Mystery Challenge -->
+                        <div class="mystery-challenge mt-4">
+                            <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#mysteryModal">
+                                <i class="fas fa-question-circle me-2"></i>Can You Solve This?
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="image13.jpg" alt="Mystery Icon" class="img-fluid genre-icon pulse">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mystery Modal -->
+    <div class="modal fade" id="mysteryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content mystery-modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Daily Mystery Challenge</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mystery-puzzle">
+                        <p class="puzzle-text">"The butler said he was in the kitchen, the gardener claims he was trimming the hedges, and the chef was preparing dinner. The clock stopped at 8:45 when the lights went out. Who's lying?"</p>
+                        <div class="clue-container mt-3">
+                            <button class="btn btn-sm btn-mystery me-2 clue-btn" data-clue="1">Clue 1</button>
+                            <button class="btn btn-sm btn-mystery me-2 clue-btn" data-clue="2">Clue 2</button>
+                            <button class="btn btn-sm btn-mystery clue-btn" data-clue="3">Solution</button>
+                        </div>
+                        <div class="clue-reveal mt-3"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <small class="text-muted">New mystery every day at midnight</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Book Filter Section with Mystery Subgenres -->
+    <section class="book-filter py-4 bg-darker">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h3 class="filter-title mb-0">
+                        <i class="fas fa-filter me-2"></i>Filter Mysteries
+                    </h3>
+                </div>
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap gap-3">
+                        <select class="form-select dark-select">
+                            <option>Sort By: Unsolved First</option>
+                            <option>Most Puzzling</option>
+                            <option>Classic Whodunits</option>
+                            <option>Newest Cases</option>
+                        </select>
+                        <select class="form-select dark-select">
+                            <option>All Subgenres</option>
+                            <option>Cozy Mysteries</option>
+                            <option>Noir Detective</option>
+                            <option>Locked Room</option>
+                            <option>Historical Mystery</option>
+                            <option>Supernatural Sleuth</option>
+                        </select>
+                        <select class="form-select dark-select">
+                            <option>Any Difficulty</option>
+                            <option>Easy (Clues Provided)</option>
+                            <option>Medium (Some Clues)</option>
+                            <option>Hard (No Clues)</option>
+                        </select>
+                        <button class="btn btn-mystery">
+                            <i class="fas fa-search me-1"></i>Investigate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Listing Section with Mystery Elements -->
+    <section class="genre-books py-5">
+        <div class="container">
+            <!-- Mystery Category Tabs -->
+            <ul class="nav nav-tabs mystery-tabs mb-4" id="mysteryTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#unsolved-tab">
+                        <i class="fas fa-question-circle me-2"></i>Unsolved Cases
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#classic-tab">
+                        <i class="fas fa-feather-alt me-2"></i>Classic Whodunits
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#new-tab">
+                        <i class="fas fa-clock me-2"></i>Recent Mysteries
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="mysteryTabContent">
+                <!-- Unsolved Cases Tab -->
+                <div class="tab-pane fade show active" id="unsolved-tab">
+                    <div class="row g-4">
+                        <!-- Book 1 - With Mystery Badge -->
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="book-card h-100 mystery-unsolved">
+                                <div class="book-badge">Unsolved</div>
+                                <div class="mystery-ribbon">Can You Solve It?</div>
+                                <img src="download (8).jpg" 
+                                     alt="The Snowman" 
+                                     class="book-cover">
+                                <div class="book-info">
+                                    <h3 class="book-title">The Snowman</h3>
+                                    <p class="book-author">Jo Nesbø</p>
+                                    <div class="book-rating">
+                                        <span class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </span>
+                                        <span class="rating-value">4.3</span>
+                                        <span class="unsolved-text">72% couldn't solve</span>
+                                    </div>
+                                    <div class="book-actions mt-3">
+                                        <a href="#" class="btn btn-sm btn-outline-mystery">
+                                            <i class="fas fa-clipboard-question me-1"></i>Clues
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-mystery">
+                                            <i class="fas fa-book-open me-1"></i>Investigate
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Book 2 - With Solved Badge -->
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="book-card h-100 mystery-solved">
+                                <div class="book-badge">Solved</div>
+                                <img src="download (9).jpg" 
+                                     alt="Murder on the Orient Express" 
+                                     class="book-cover">
+                                <div class="book-info">
+                                    <h3 class="book-title">Murder on the Orient Express</h3>
+                                    <p class="book-author">Agatha Christie</p>
+                                    <div class="book-rating">
+                                        <span class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <span class="rating-value">4.8</span>
+                                        <span class="solved-text">Classic Solution</span>
+                                    </div>
+                                    <div class="book-actions mt-3">
+                                        <a href="#" class="btn btn-sm btn-outline-mystery">
+                                            <i class="fas fa-eye me-1"></i>View Solution
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-mystery">
+                                            <i class="fas fa-book-open me-1"></i>Read
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- More books... -->
+                    </div>
+                </div>
+                
+                <!-- Classic Whodunits Tab -->
+                <div class="tab-pane fade" id="classic-tab">
+                    <!-- Classic mystery books -->
+                </div>
+                
+                <!-- Recent Mysteries Tab -->
+                <div class="tab-pane fade" id="new-tab">
+                    <!-- New mystery books -->
+                </div>
+            </div>
+            
+            <!-- Pagination with Mystery Theme -->
+            <nav class="mt-5">
+                <ul class="pagination justify-content-center mystery-pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">
+                            <i class="fas fa-arrow-left"></i> Previous Case
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            Next Clue <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Mystery Authors Section with Interactive Cards -->
+    <section class="genre-authors py-5 bg-darker">
+        <div class="container">
+            <h2 class="section-title mb-5">
+                <i class="fas fa-user-secret me-3"></i>Master Detectives
+            </h2>
+            
+            <div class="row g-4">
+                <!-- Author 1 - With Mystery Facts -->
+                <div class="col-6 col-md-3">
+                    <div class="author-card mystery-author">
+                        <div class="author-photo-wrapper">
+                            <img src="download (10).jpg" 
+                                 alt="Agatha Christie" 
+                                 class="author-photo">
+                            <div class="author-mystery-fact">
+                                <i class="fas fa-lightbulb"></i> Created Poirot
+                            </div>
+                        </div>
+                        <div class="author-info">
+                            <h3 class="author-name">Agatha Christie</h3>
+                            <p class="author-stats">66 Mysteries · 2 Billion Sold</p>
+                            <div class="author-books-preview">
+                                <img src="download (24).jpg" alt="Book 1">
+                                <img src="download (25).jpg" alt="Book 2">
+                                <span>+58 more</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Author 2 - With Interactive Element -->
+                <div class="col-6 col-md-3">
+                    <div class="author-card mystery-author">
+                        <div class="author-photo-wrapper">
+                            <img src="download (11).jpg" 
+                                 alt="Arthur Conan Doyle" 
+                                 class="author-photo">
+                            <button class="btn btn-sm btn-mystery author-quiz-btn" data-author="doyle">
+                                <i class="fas fa-question"></i> Quiz
+                            </button>
+                        </div>
+                        <div class="author-info">
+                            <h3 class="author-name">Arthur Conan Doyle</h3>
+                            <p class="author-stats">Sherlock Holmes · 56 Stories</p>
+                            <div class="author-books-preview">
+                                <img src="download (22).jpg" alt="Book 1">
+                                <img src="download (23).jpg" alt="Book 2">
+                                <span>+54 more</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More authors... -->
+            </div>
+            
+            <!-- Mystery Author Quiz Modal -->
+            <div class="modal fade" id="authorQuizModal" tabindex="-1" aria-hidden="true">
+                <!-- Quiz content would go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Mystery Challenge Section -->
+    <section class="mystery-challenge-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="mystery-challenge-card">
+                        <h2 class="challenge-title">
+                            <i class="fas fa-puzzle-piece me-3"></i>Monthly Mystery Challenge
+                        </h2>
+                        <p class="challenge-description">
+                            Test your sleuthing skills with our exclusive mystery challenge. 
+                            Solve the case and earn the "Master Detective" badge!
+                        </p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-mystery" style="width: 65%">
+                                65% Solved It
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <button class="btn btn-mystery flex-grow-1">
+                                <i class="fas fa-play me-2"></i>Start Challenge
+                            </button>
+                            <button class="btn btn-outline-mystery">
+                                <i class="fas fa-trophy me-2"></i>Leaderboard
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="download (21).jpg" alt="Mystery Challenge" class="img-fluid challenge-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MODERN FOOTER ==================== -->
+<footer class="site-footer">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    
+    <div class="footer-main py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Brand Column -->
+                <div class="col-lg-4">
+                    <div class="footer-brand pe-lg-4">
+                        <a href="index.html" class="d-flex align-items-center mb-3 text-decoration-none">
+                            <div class="logo-icon-wrapper me-2">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <span class="logo-text">DarkReads</span>
+                        </a>
+                        <p class="footer-tagline mb-4">Immerse yourself in captivating stories that linger long after the last page.</p>
+                        
+                        <!-- Newsletter -->
+                        <div class="newsletter-card">
+                            <h5 class="newsletter-title">Join Our Reading Community</h5>
+                            <form class="newsletter-form">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Your email address" required>
+                                    <button class="btn btn-subscribe" type="submit">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                                <div class="form-text">Get weekly book recommendations</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <!-- Explore Column -->
+                        <div class="col-sm-4">
+                            <div class="footer-links">
+                                <h5 class="footer-heading">
+                                    <i class="fas fa-compass me-2"></i>Explore
+                                </h5>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="bookshelf.html">My Bookshelf</a></li>
+                                    <li><a href="#">New Releases</a></li>
+                                    <li><a href="#">Coming Soon</a></li>
+                                    <li><a href="#">Authors</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Genres Column -->
+                        <div class="col-sm-4">
+                            <div class="footer-links">
+                                <h5 class="footer-heading">
+                                    <i class="fas fa-tags me-2"></i>Genres
+                                </h5>
+                                <ul>
+                                    <li><a href="#">Thriller</a></li>
+                                    <li><a href="#">Mystery</a></li>
+                                    <li><a href="#">Romance</a></li>
+                                    <li><a href="#">Horror</a></li>
+                                    <li><a href="#">Fantasy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Connect Column -->
+                        <div class="col-sm-4">
+                            <div class="footer-links">
+                                <h5 class="footer-heading">
+                                    <i class="fas fa-link me-2"></i>Connect
+                                </h5>
+                                <div class="contact-info">
+                                    <div class="contact-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Dhaka, Library City</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>contact@darkreads.com</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-phone"></i>
+                                        <span>01617246308</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="social-links mt-3">
+                                    <a href="#" class="social-icon" aria-label="Facebook">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="social-icon" aria-label="Twitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon" aria-label="Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="social-icon" aria-label="Goodreads">
+                                        <i class="fab fa-goodreads"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom py-3">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="copyright mb-2 mb-md-0">
+                    &copy; <span id="current-year">2023</span> DarkReads. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="divider">•</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="divider">•</span>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Parallax JS -->
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+    <!-- Custom Mystery JS -->
+    <script src="../js/mystery.js"></script>
+    <script>
+        // Animated counter for stats
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.stat-item[data-count]');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.querySelector('.stat-number').innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    const updateCount = () => {
+                        const current = +counter.querySelector('.stat-number').innerText;
+                        const inc = Math.ceil(target / speed);
+                        if (current < target) {
+                            counter.querySelector('.stat-number').innerText = Math.min(current + inc, target);
+                            setTimeout(updateCount, 1);
+                        }
+                    };
+                    updateCount();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

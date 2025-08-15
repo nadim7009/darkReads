@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Silent Patient | DarkReads</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-book-open me-2"></i>DarkReads
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">Book Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookshelf.html">My Bookshelf</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="author.html">Author</a>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="coming_soon.html">Coming Soon</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Genres
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="thriller.html">Thriller</a></li>
+                            <li><a class="dropdown-item" href="mystry.html">Mystery</a></li>
+                            <li><a class="dropdown-item" href="romance.html">Romance</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="allGenres.html">All Genres</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Book Detail Section -->
+    <main class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Book Cover -->
+                <div class="col-lg-4 text-center position-relative">
+                    <span class="position-absolute top-0 end-0 badge bg-warning text-dark m-2">Bestseller</span>
+                    <img src="silentPatient.jpg" 
+                         alt="The Silent Patient Cover" class="img-fluid rounded mb-4 shadow-lg hover-scale">
+                    <div class="d-grid gap-3">
+                        <a href="read.html" class="btn btn-warning btn-lg fw-bold">
+                            <i class="fas fa-book-open me-2"></i>Start Reading
+                        </a>
+                        <button class="btn btn-outline-warning btn-lg" onclick="alert('Book Added to Shelf!')">
+                            <i class="fas fa-plus me-2"></i>Add to Bookshelf
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Book Info -->
+                <div class="col-lg-8">
+                    <h1 class="display-5 fw-bold">The Silent Patient</h1>
+                    <h2 class="h4 text-muted mb-4">by Alex Michaelides</h2>
+
+                    <!-- Ratings & Genres -->
+                    <div class="d-flex flex-wrap align-items-center gap-3 my-4 pb-3 border-bottom border-secondary">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-warning fs-5">
+                                ★★★★☆
+                            </span>
+                            <span class="fw-bold text-warning">4.2</span>
+                            <span class="text-muted">(12,345 ratings)</span>
+                        </div>
+                        <div>
+                            <span class="badge bg-danger me-1">Thriller</span>
+                            <span class="badge bg-primary me-1">Mystery</span>
+                            <span class="badge bg-success">Psychological</span>
+                        </div>
+                    </div>
+
+                   <div class="mb-5">
+    <h3 class="h4 fw-bold text-warning mb-3">Synopsis</h3>
+    <p class="synopsis-text">
+        Alicia Berenson's life seems perfect. A renowned painter, a beautiful house, and a loving husband.
+        But everything shatters when she shoots her husband five times in the face and never speaks again.
+    </p>
+    <p class="synopsis-text">
+        The mystery captures the world's attention as Alicia's art skyrockets in value. She is hidden away at the Grove, a forensic unit, as a psychotherapist tries to get her to talk.
+    </p>
+</div>
+
+                    <!-- Book Details -->
+                    <div class="mb-5">
+                        <h3 class="h4 fw-bold text-warning mb-3">Book Details</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Published:</strong> Feb 5, 2019</li>
+                                    <li><strong>Publisher:</strong> Celadon Books</li>
+                                    <li><strong>Pages:</strong> 336</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>ISBN:</strong> 9781250301697</li>
+                                    <li><strong>Language:</strong> English</li>
+                                    <li><strong>Format:</strong> Hardcover</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- You May Also Like -->
+                    <div class="mt-5 pt-4 border-top border-secondary">
+                        <h3 class="h4 fw-bold text-warning mb-3">You May Also Like</h3>
+                        <div class="row g-3">
+                            <!-- Related Books -->
+                            <div class="col-6 col-md-3">
+                                <img src="images.jpg" class="img-fluid rounded hover-scale">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <img src="img_3.jpg" class="img-fluid rounded hover-scale">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <img src="img_7.jpg" class="img-fluid rounded hover-scale">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <img src="img_5.jpg" class="img-fluid rounded hover-scale">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+<!-- ==================== MODERN FOOTER ==================== -->
+<footer class="site-footer">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    
+    <div class="footer-main py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Brand Column -->
+                <div class="col-lg-4">
+                    <div class="footer-brand pe-lg-4">
+                        <a href="index.html" class="d-flex align-items-center mb-3 text-decoration-none">
+                            <div class="logo-icon-wrapper me-2">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <span class="logo-text">DarkReads</span>
+                        </a>
+                        <p class="footer-tagline mb-4">Immerse yourself in captivating stories that linger long after the last page.</p>
+                        
+                        <!-- Newsletter -->
+                        <div class="newsletter-card">
+                            <h5 class="newsletter-title">Join Our Reading Community</h5>
+                            <form class="newsletter-form">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Your email address" required>
+                                    <button class="btn btn-subscribe" type="submit">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                                <div class="form-text">Get weekly book recommendations</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <!-- Explore Column -->
+                        <div class="col-sm-4">
+                            <div class="footer-links">
+                                <h5 class="footer-heading">
+                                    <i class="fas fa-compass me-2"></i>Explore
+                                </h5>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="bookshelf.html">My Bookshelf</a></li>
+                                    <li><a href="#">New Releases</a></li>
+                                    <li><a href="#">Coming Soon</a></li>
+                                    <li><a href="#">Authors</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Genres Column -->
+                        <div class="col-sm-4">
+                            <div class="footer-links">
+                                <h5 class="footer-heading">
+                                    <i class="fas fa-tags me-2"></i>Genres
+                                </h5>
+                                <ul>
+                                    <li><a href="#">Thriller</a></li>
+                                    <li><a href="#">Mystery</a></li>
+                                    <li><a href="#">Romance</a></li>
+                                    <li><a href="#">Horror</a></li>
+                                    <li><a href="#">Fantasy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Connect Column -->
+                        <div class="col-sm-4">
+                            <div class="footer-links">
+                                <h5 class="footer-heading">
+                                    <i class="fas fa-link me-2"></i>Connect
+                                </h5>
+                                <div class="contact-info">
+                                    <div class="contact-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Dhaka, Library City</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>contact@darkreads.com</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-phone"></i>
+                                        <span>01617246308</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="social-links mt-3">
+                                    <a href="#" class="social-icon" aria-label="Facebook">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="social-icon" aria-label="Twitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon" aria-label="Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="social-icon" aria-label="Goodreads">
+                                        <i class="fab fa-goodreads"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom py-3">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="copyright mb-2 mb-md-0">
+                    &copy; <span id="current-year">2023</span> DarkReads. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="divider">•</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="divider">•</span>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Auto-update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+    // Auto-update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Auto-update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

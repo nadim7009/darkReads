@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkReads | Thriller, Mystery & Romance Books</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-orange">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-book-open me-2"></i>DarkReads
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">Book Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookshelf.html">My Bookshelf</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="author.html">Author</a>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="coming_soon.html">Coming Soon</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-bs-toggle="dropdown">
+                            Genres
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="thriller.html">Thriller</a></li>
+                            <li><a class="dropdown-item" href="mystry.html">Mystery</a></li>
+                            <li><a class="dropdown-item" href="#">Romance</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="allGenres.html">All Genres</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section py-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Dive Into Dark Stories</h1>
+            <p class="lead mb-5">Discover thrilling mysteries, heart-pounding romances, and chilling tales</p>
+            <div class="search-box mx-auto">
+                <div class="input-group">
+                    <input type="text" class="form-control dark-input" placeholder="Search by title, author...">
+                    <button class="btn btn-orange" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-5">
+        <div class="container">
+            <!-- Genre Filter -->
+            <div class="genre-filter mb-5">
+                <h2 class="section-title mb-4">Browse by Genre</h2>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="/genre/all"><button class="btn btn-genre active">All</button></a>
+<a href="thriller.html"><button class="btn btn-genre">Thriller</button></a>
+<a href="mystry.html"><button class="btn btn-genre">Mystery</button></a>
+<a href="romance.html"><button class="btn btn-genre">Romance</button></a>
+<a href="allGenres.html"><button class="btn btn-genre">Horror</button></a>
+<a href="allGenres.html"><button class="btn btn-genre">Suspense</button></a>
+                </div>
+            </div>
+
+            <!-- Featured Books -->
+            <section class="featured-books mb-5">
+                <h2 class="section-title mb-4">Featured Books</h2>
+                <div class="row g-4">
+                    <!-- Book Card 1 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="book-card h-100">
+                            <div class="book-badge thriller">Bestseller</div>
+                            <img src="silentPatient.jpg" class="book-cover" alt="Book Cover">
+                            <div class="book-info">
+                                <h3 class="book-title">The Silent Patient</h3>
+                                <p class="book-author">Alex Michaelides</p>
+                                <div class="book-rating">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </span>
+                                    <span class="rating-value">4.2</span>
+                                </div>
+                                <div class="book-actions mt-3">
+                                    <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                                    <a href="" class="btn btn-sm btn-orange">Add to Shelf</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card 2 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="book-card h-100">
+                            <div class="book-badge mystery">New</div>
+                            <img src="gone_girl.jpg" class="book-cover" alt="Book Cover">
+                            <div class="book-info">
+                                <h3 class="book-title">Gone Girl</h3>
+                                <p class="book-author">Gillian Flynn</p>
+                                <div class="book-rating">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                    <span class="rating-value">4.0</span>
+                                </div>
+                                <div class="book-actions mt-3">
+                                    <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                                    <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card 3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="book-card h-100">
+                            <div class="book-badge romance">Popular</div>
+                            <img src="images.jpg" class="book-cover" alt="Book Cover">
+                            <div class="book-info">
+                                <h3 class="book-title">The Love Hypothesis</h3>
+                                <p class="book-author">Ali Hazelwood</p>
+                                <div class="book-rating">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                    <span class="rating-value">4.5</span>
+                                </div>
+                                <div class="book-actions mt-3">
+                                    <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                                    <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card 4 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="book-card h-100">
+                            <img src="images (1).jpg" class="book-cover" alt="Book Cover">
+                            <div class="book-info">
+                                <h3 class="book-title">The Girl on the Train</h3>
+                                <p class="book-author">Paula Hawkins</p>
+                                <div class="book-rating">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                    <span class="rating-value">3.9</span>
+                                </div>
+                                <div class="book-actions mt-3">
+                                    <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                                    <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+           <!-- ==================== NEW RELEASES SECTION ==================== -->
+<section class="new-releases mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="section-title">New Releases</h2>
+        <a href="#" class="btn btn-sm btn-outline-orange">View All New Releases</a>
+    </div>
+    
+    <div class="row g-4 new-releases-container">
+        <!-- New Release 1 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="book-card h-100 new-release">
+                <div class="book-badge new">Just Added</div>
+                <img src="img_3.jpg" class="book-cover" alt="The Night Circus">
+                <div class="book-info">
+                    <h3 class="book-title">The Night Circus</h3>
+                    <p class="book-author">Erin Morgenstern</p>
+                    <div class="book-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span class="rating-value">4.0</span>
+                    </div>
+                    <div class="book-actions mt-3">
+                        <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                        <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- New Release 2 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="book-card h-100 new-release">
+                <div class="book-badge new">Bestseller</div>
+                <img src="images (4).jpg" class="book-cover" alt="The Guest List">
+                <div class="book-info">
+                    <h3 class="book-title">The Guest List</h3>
+                    <p class="book-author">Lucy Foley</p>
+                    <div class="book-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-value">4.3</span>
+                    </div>
+                    <div class="book-actions mt-3">
+                        <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                        <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- New Release 3 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="book-card h-100 new-release">
+                <div class="book-badge new">Hot</div>
+                <img src="img_5.jpg" class="book-cover" alt="Verity">
+                <div class="book-info">
+                    <h3 class="book-title">Verity</h3>
+                    <p class="book-author">Colleen Hoover</p>
+                    <div class="book-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span class="rating-value">4.6</span>
+                    </div>
+                    <div class="book-actions mt-3">
+                        <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                        <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- New Release 4 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="book-card h-100 new-release">
+                <div class="book-badge new">Editor's Choice</div>
+                <img src="Img_6.jpg" class="book-cover" alt="The Maidens">
+                <div class="book-info">
+                    <h3 class="book-title">The Maidens</h3>
+                    <p class="book-author">Alex Michaelides</p>
+                    <div class="book-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span class="rating-value">3.9</span>
+                    </div>
+                    <div class="book-actions mt-3">
+                        <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                        <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Release 5 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="book-card h-100 new-release">
+                <div class="book-badge thriller">Thriller</div>
+                <img src="img_7.jpg" class="book-cover" alt="The Paris Apartment">
+                <div class="book-info">
+                    <h3 class="book-title">The Paris Apartment</h3>
+                    <p class="book-author">Lucy Foley</p>
+                    <div class="book-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span class="rating-value">4.1</span>
+                    </div>
+                    <div class="book-actions mt-3">
+                        <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                        <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Release 6 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="book-card h-100 new-release">
+                <div class="book-badge mystery">Mystery</div>
+                <img src="Img(8).jpg" class="book-cover" alt="The Thursday Murder Club">
+                <div class="book-info">
+                    <h3 class="book-title">The Thursday Murder Club</h3>
+                    <p class="book-author">Richard Osman</p>
+                    <div class="book-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-value">4.4</span>
+                    </div>
+                    <div class="book-actions mt-3">
+                        <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                        <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Release 7 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="book-card h-100 new-release">
+                <div class="book-badge romance">Romance</div>
+                <img src="img(9).jpg" class="book-cover" alt="People We Meet on Vacation">
+                <div class="book-info">
+                    <h3 class="book-title">People We Meet on Vacation</h3>
+                    <p class="book-author">Emily Henry</p>
+                    <div class="book-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span class="rating-value">4.0</span>
+                    </div>
+                    <div class="book-actions mt-3">
+                        <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                        <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Release 8 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="book-card h-100 new-release">
+                <div class="book-badge new">Latest</div>
+                <img src="img(10).JPG" class="book-cover" alt="The Sanatorium">
+                <div class="book-info">
+                    <h3 class="book-title">The Sanatorium</h3>
+                    <p class="book-author">Sarah Pearse</p>
+                    <div class="book-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span class="rating-value">3.7</span>
+                    </div>
+                    <div class="book-actions mt-3">
+                        <a href="book_detail.html" class="btn btn-sm btn-outline-orange">Details</a>
+                        <a href="#" class="btn btn-sm btn-orange">Add to Shelf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ==================== MODERN FOOTER ==================== -->
+<footer class="site-footer">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    
+    <div class="footer-main py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Brand Column -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <a href="index.html" class="d-flex align-items-center mb-3">
+                            <i class="fas fa-book-open footer-logo-icon me-2"></i>
+                            <span class="footer-logo-text">DarkReads</span>
+                        </a>
+                        <p class="footer-tagline">Where dark tales come to life. Discover your next obsession.</p>
+                        <div class="footer-newsletter mt-4">
+                            <h6>Get the latest books</h6>
+                            <form class="newsletter-form">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Your email" required>
+                                    <button class="btn btn-newsletter" type="submit">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Links Column -->
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Explore</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right me-2"></i>Home</a></li>
+                        <li><a href="bookshelf.html"><i class="fas fa-chevron-right me-2"></i>My Bookshelf</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>New Releases</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Coming Soon</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Authors</a></li>
+                    </ul>
+                </div>
+
+                <!-- Genres Column -->
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Genres</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Thriller</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Mystery</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Romance</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Horror</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Fantasy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-heading">Connect</h5>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt me-2"></i>Dhaka, Library City</p>
+                        <p><i class="fas fa-envelope me-2"></i> contact@darkreads.com</p>
+                        <p><i class="fas fa-phone me-2"></i> 01617246308</p>
+                        
+                        <div class="footer-social mt-4">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-goodreads"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; <span id="current-year">2023</span> DarkReads. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="footer-legal-links mb-0">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Auto-update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

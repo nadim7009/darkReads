@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Book Genres | DarkReads</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-orange">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-book-open me-2"></i>DarkReads
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">Book Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookshelf.html">My Bookshelf</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="author.html">Author</a>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="coming_soon.html">Coming Soon</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-bs-toggle="dropdown">
+                            Genres
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="thriller.html">Thriller</a></li>
+                            <li><a class="dropdown-item" href="mystry.html">Mystery</a></li>
+                            <li><a class="dropdown-item" href="romance.html">Romance</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="allGenres.html">All Genres</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Genre Explorer Hero -->
+    <section class="genre-explorer-hero py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold mb-4">Genre Explorer</h1>
+                    <p class="lead mb-4">Discover your next literary adventure across 50+ book genres</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#genre-grid" class="btn btn-lg btn-primary">
+                            <i class="fas fa-th-large me-2"></i>Browse All
+                        </a>
+                        <a href="#genre-quiz" class="btn btn-lg btn-outline-light">
+                            <i class="fas fa-question-circle me-2"></i>Take Genre Quiz
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="genre-icon-stack">
+                        <div class="icon-circle thriller">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <div class="icon-circle mystery">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="icon-circle romance">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="icon-circle fantasy">
+                            <i class="fas fa-dragon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Genre Filter Bar -->
+    <section class="genre-filter-bar py-3 bg-darker sticky-top">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row align-items-center">
+                <div class="me-md-3 mb-2 mb-md-0">
+                    <span class="filter-label me-2">
+                        <i class="fas fa-filter"></i> Filter:
+                    </span>
+                </div>
+                <div class="flex-grow-1">
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-sm btn-genre-filter active" data-category="all">All Genres</button>
+                        <button class="btn btn-sm btn-genre-filter" data-category="fiction">Fiction</button>
+                        <button class="btn btn-sm btn-genre-filter" data-category="nonfiction">Non-Fiction</button>
+                        <button class="btn btn-sm btn-genre-filter" data-category="mood-light">Light Mood</button>
+                        <button class="btn btn-sm btn-genre-filter" data-category="mood-dark">Dark Mood</button>
+                        <button class="btn btn-sm btn-genre-filter" data-category="popular">Most Popular</button>
+                        <button class="btn btn-sm btn-genre-filter" data-category="new">New Releases</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Genre Grid Section -->
+    <section id="genre-grid" class="genre-grid-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Thriller -->
+                <div class="col-6 col-md-4 col-lg-3" data-categories="fiction mood-dark popular">
+                    <a href="../genres/thriller.html" class="genre-card thriller">
+                        <div class="genre-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3 class="genre-title">Thriller</h3>
+                        <p class="genre-desc">Heart-pounding suspense</p>
+                        <div class="genre-stats">
+                            <span class="stat">
+                                <i class="fas fa-book"></i> 1,240
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-fire"></i> Trending
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Mystery -->
+                <div class="col-6 col-md-4 col-lg-3" data-categories="fiction mood-dark popular">
+                    <a href="../genres/mystery.html" class="genre-card mystery">
+                        <div class="genre-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="genre-title">Mystery</h3>
+                        <p class="genre-desc">Solve the puzzle</p>
+                        <div class="genre-stats">
+                            <span class="stat">
+                                <i class="fas fa-book"></i> 980
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-chart-line"></i> Growing
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Romance -->
+                <div class="col-6 col-md-4 col-lg-3" data-categories="fiction mood-light popular">
+                    <a href="../genres/romance.html" class="genre-card romance">
+                        <div class="genre-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="genre-title">Romance</h3>
+                        <p class="genre-desc">Love stories</p>
+                        <div class="genre-stats">
+                            <span class="stat">
+                                <i class="fas fa-book"></i> 2,150
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-heart"></i> Popular
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Fantasy -->
+                <div class="col-6 col-md-4 col-lg-3" data-categories="fiction mood-light new">
+                    <a href="../genres/fantasy.html" class="genre-card fantasy">
+                        <div class="genre-icon">
+                            <i class="fas fa-dragon"></i>
+                        </div>
+                        <h3 class="genre-title">Fantasy</h3>
+                        <p class="genre-desc">Magical worlds</p>
+                        <div class="genre-stats">
+                            <span class="stat">
+                                <i class="fas fa-book"></i> 1,780
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-star"></i> New
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Science Fiction -->
+                <div class="col-6 col-md-4 col-lg-3" data-categories="fiction mood-dark">
+                    <a href="../genres/scifi.html" class="genre-card scifi">
+                        <div class="genre-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="genre-title">Sci-Fi</h3>
+                        <p class="genre-desc">Future worlds</p>
+                        <div class="genre-stats">
+                            <span class="stat">
+                                <i class="fas fa-book"></i> 1,320
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Horror -->
+                <div class="col-6 col-md-4 col-lg-3" data-categories="fiction mood-dark">
+                    <a href="../genres/horror.html" class="genre-card horror">
+                        <div class="genre-icon">
+                            <i class="fas fa-ghost"></i>
+                        </div>
+                        <h3 class="genre-title">Horror</h3>
+                        <p class="genre-desc">Chilling tales</p>
+                        <div class="genre-stats">
+                            <span class="stat">
+                                <i class="fas fa-book"></i> 890
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Historical Fiction -->
+                <div class="col-6 col-md-4 col-lg-3" data-categories="fiction">
+                    <a href="../genres/historical.html" class="genre-card historical">
+                        <div class="genre-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3 class="genre-title">Historical</h3>
+                        <p class="genre-desc">Past eras come alive</p>
+                        <div class="genre-stats">
+                            <span class="stat">
+                                <i class="fas fa-book"></i> 1,050
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Biography -->
+                <div class="col-6 col-md-4 col-lg-3" data-categories="nonfiction">
+                    <a href="../genres/biography.html" class="genre-card biography">
+                        <div class="genre-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="genre-title">Biography</h3>
+                        <p class="genre-desc">Real lives</p>
+                        <div class="genre-stats">
+                            <span class="stat">
+                                <i class="fas fa-book"></i> 760
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- More genres... -->
+            </div>
+            
+            <!-- View More Button -->
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-light btn-load-more">
+                    <i class="fas fa-plus-circle me-2"></i>Load More Genres
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Genre Quiz Section -->
+    <section id="genre-quiz" class="genre-quiz-section py-5 bg-darker">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="quiz-content pe-lg-5">
+                        <h2 class="section-title mb-4">
+                            <i class="fas fa-question-circle me-3"></i>Not Sure What to Read?
+                        </h2>
+                        <p class="lead mb-4">Take our 2-minute Genre Match Quiz to discover your perfect book genre based on your mood and preferences.</p>
+                        <ul class="quiz-features mb-4">
+                            <li>
+                                <i class="fas fa-check-circle"></i> Personalized recommendations
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Discover hidden gems
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Updated weekly
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary btn-lg">
+                            <i class="fas fa-play me-2"></i>Start Quiz Now
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="quiz-visual mt-5 mt-lg-0">
+                        <div class="quiz-card">
+                            <div class="quiz-question">
+                                <h5>Question 1 of 5</h5>
+                                <p>What's your ideal reading setting?</p>
+                            </div>
+                            <div class="quiz-options">
+                                <button class="btn btn-sm btn-quiz-option">
+                                    <i class="fas fa-couch"></i> Cozy at home
+                                </button>
+                                <button class="btn btn-sm btn-quiz-option">
+                                    <i class="fas fa-umbrella-beach"></i> Beach vacation
+                                </button>
+                                <button class="btn btn-sm btn-quiz-option">
+                                    <i class="fas fa-mountain"></i> Remote cabin
+                                </button>
+                                <button class="btn btn-sm btn-quiz-option">
+                                    <i class="fas fa-city"></i> Urban cafe
+                                </button>
+                            </div>
+                            <div class="quiz-progress">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 20%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular This Month Section -->
+    <section class="popular-genres-section py-5">
+        <div class="container">
+            <h2 class="section-title mb-5 text-center">
+                <i class="fas fa-chart-line me-3"></i>Trending This Month
+            </h2>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="trending-genre-card thriller">
+                        <div class="trending-rank">#1</div>
+                        <h3 class="trending-title">Thriller</h3>
+                        <p class="trending-stats">
+                            <span>+24% more reads</span>
+                            <span>15 new releases</span>
+                        </p>
+                        <a href="../genres/thriller.html" class="btn btn-sm btn-outline-light">
+                            Explore Thrillers
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="trending-genre-card fantasy">
+                        <div class="trending-rank">#2</div>
+                        <h3 class="trending-title">Fantasy</h3>
+                        <p class="trending-stats">
+                            <span>+18% more reads</span>
+                            <span>12 new releases</span>
+                        </p>
+                        <a href="../genres/fantasy.html" class="btn btn-sm btn-outline-light">
+                            Explore Fantasy
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="trending-genre-card romance">
+                        <div class="trending-rank">#3</div>
+                        <h3 class="trending-title">Romance</h3>
+                        <p class="trending-stats">
+                            <span>+15% more reads</span>
+                            <span>22 new releases</span>
+                        </p>
+                        <a href="../genres/romance.html" class="btn btn-sm btn-outline-light">
+                            Explore Romance
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- ==================== MODERN FOOTER ==================== -->
+<footer class="site-footer">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    
+    <div class="footer-main py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Brand Column -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <a href="index.html" class="d-flex align-items-center mb-3">
+                            <i class="fas fa-book-open footer-logo-icon me-2"></i>
+                            <span class="footer-logo-text">DarkReads</span>
+                        </a>
+                        <p class="footer-tagline">Where dark tales come to life. Discover your next obsession.</p>
+                        <div class="footer-newsletter mt-4">
+                            <h6>Get the latest books</h6>
+                            <form class="newsletter-form">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Your email" required>
+                                    <button class="btn btn-newsletter" type="submit">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Links Column -->
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Explore</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right me-2"></i>Home</a></li>
+                        <li><a href="bookDetails.html"><i class="fas fa-chevron-right me-2"></i>Book Details</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>My Bookshelf</a></li>
+                        <li><a href="coming_soon.html"><i class="fas fa-chevron-right me-2"></i>Coming Soon</a></li>
+                        <li><a href="author.html"><i class="fas fa-chevron-right me-2"></i>Authors</a></li>
+                    </ul>
+                </div>
+
+                <!-- Genres Column -->
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Genres</h5>
+                    <ul class="footer-links">
+                        <li><a href="thriller.html"><i class="fas fa-chevron-right me-2"></i>Thriller</a></li>
+                        <li><a href="mystry.html"><i class="fas fa-chevron-right me-2"></i>Mystery</a></li>
+                        <li><a href="romance.html"><i class="fas fa-chevron-right me-2"></i>Romance</a></li>
+                        <li><a href="allGenres.html"><i class="fas fa-chevron-right me-2"></i>Horror</a></li>
+                        <li><a href="allGenres.html"><i class="fas fa-chevron-right me-2"></i>Fantasy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-heading">Connect</h5>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Book Street, Library City</p>
+                        <p><i class="fas fa-envelope me-2"></i> contact@darkreads.com</p>
+                        <p><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</p>
+                        
+                        <div class="footer-social mt-4">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-goodreads"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; <span id="current-year">2023</span> DarkReads. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="footer-legal-links mb-0">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/all-genres.js"></script>
+    <script>
+        // Genre filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.btn-genre-filter');
+            const genreCards = document.querySelectorAll('.genre-grid-section .col-6');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Filter genre cards
+                    genreCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-categories').includes(category)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Load more genres functionality
+            const loadMoreBtn = document.querySelector('.btn-load-more');
+            const hiddenGenres = document.querySelectorAll('.genre-grid-section .d-none');
+            let visibleCount = 0;
+            
+            loadMoreBtn.addEventListener('click', function() {
+                visibleCount += 8;
+                const genresToShow = Array.from(hiddenGenres).slice(0, visibleCount);
+                
+                genresToShow.forEach(genre => {
+                    genre.classList.remove('d-none');
+                    genre.classList.add('fade-in');
+                });
+                
+                if (visibleCount >= hiddenGenres.length) {
+                    loadMoreBtn.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

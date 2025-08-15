@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | DarkReads</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+     <link rel="stylesheet" href="coming.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="particles-bg"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-orange">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-book-open me-2"></i>DarkReads
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">Book Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookshelf.html">My Bookshelf</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="author.html">Author</a>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="coming_soon.html">Coming Soon</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-bs-toggle="dropdown">
+                            Genres
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="thriller.html">Thriller</a></li>
+                            <li><a class="dropdown-item" href="mystry.html">Mystery</a></li>
+                            <li><a class="dropdown-item" href="#">Romance</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="allGenres.html">All Genres</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="coming-soon">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <!-- Animated Book Icon -->
+                    <div class="book-icon animate__animated animate__pulse animate__infinite">
+                        <i class="fas fa-book-sparkles"></i>
+                    </div>
+                    
+                    <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">New Books Coming Soon</h1>
+                    <p class="lead mb-5 animate__animated animate__fadeIn animate__delay-1s">
+                        We're brewing something extraordinary for book lovers like you. Stay tuned for our thrilling new releases!
+                    </p>
+                    
+                    <!-- Countdown Timer -->
+                    <div class="countdown-container mb-5 animate__animated animate__fadeIn animate__delay-2s">
+                        <div class="row g-3">
+                            <div class="col-3">
+                                <div class="countdown-box">
+                                    <div class="countdown-value" id="days">00</div>
+                                    <div class="countdown-label">Days</div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="countdown-box">
+                                    <div class="countdown-value" id="hours">00</div>
+                                    <div class="countdown-label">Hours</div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="countdown-box">
+                                    <div class="countdown-value" id="minutes">00</div>
+                                    <div class="countdown-label">Minutes</div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="countdown-box">
+                                    <div class="countdown-value" id="seconds">00</div>
+                                    <div class="countdown-label">Seconds</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Notification Form -->
+                    <div class="notify-form animate__animated animate__fadeIn animate__delay-3s">
+                        <h3 class="h4 mb-4">Get Early Access</h3>
+                        <form class="row g-2 justify-content-center">
+                            <div class="col-md-8">
+                                <input type="email" class="form-control" placeholder="Your email address" required>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    Notify Me <i class="fas fa-paper-plane ms-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links mt-5 animate__animated animate__fadeIn animate__delay-4s">
+                        <p class="mb-3">Follow us for updates</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-goodreads"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+        <!-- ==================== MODERN FOOTER ==================== -->
+<footer class="site-footer">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    
+    <div class="footer-main py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Brand Column -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <a href="index.html" class="d-flex align-items-center mb-3">
+                            <i class="fas fa-book-open footer-logo-icon me-2"></i>
+                            <span class="footer-logo-text">DarkReads</span>
+                        </a>
+                        <p class="footer-tagline">Where dark tales come to life. Discover your next obsession.</p>
+                        <div class="footer-newsletter mt-4">
+                            <h6>Get the latest books</h6>
+                            <form class="newsletter-form">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Your email" required>
+                                    <button class="btn btn-newsletter" type="submit">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Links Column -->
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Explore</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right me-2"></i>Home</a></li>
+                        <li><a href="bookshelf.html"><i class="fas fa-chevron-right me-2"></i>My Bookshelf</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>New Releases</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Coming Soon</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Authors</a></li>
+                    </ul>
+                </div>
+
+                <!-- Genres Column -->
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Genres</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Thriller</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Mystery</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Romance</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Horror</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Fantasy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-heading">Connect</h5>
+                    <div class="footer-contact">
+                     <p><i class="fas fa-map-marker-alt me-2"></i>Dhaka, Library City</p>
+                        <p><i class="fas fa-envelope me-2"></i> contact@darkreads.com</p>
+                        <p><i class="fas fa-phone me-2"></i> 01617246308</p>
+                        
+                        <div class="footer-social mt-4">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-goodreads"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; <span id="current-year">2023</span> DarkReads. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="footer-legal-links mb-0">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Countdown Timer Script -->
+    <script>
+        // Set launch date (2 weeks from now)
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 14);
+        
+        // Update countdown every second
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display results
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+            
+            // If countdown finished
+            if (distance < 0) {
+                clearInterval(timer);
+                document.querySelector('.countdown-container').innerHTML = '<div class="alert alert-success">Our new books are now available!</div>';
+            }
+        }, 1000);
+        
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

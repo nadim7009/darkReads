@@ -1,0 +1,3200 @@
+
+/* ==================== ENHANCED BASE STYLES ==================== */
+:root {
+  /* Color Palette */
+  --dark-bg: #121212;               /* Primary background */
+  --darker-bg: #0a0a0a;             /* Secondary background */
+  --dark-card: #1e1e1e;             /* Card/container background */
+  --dark-card-hover: #282828;       /* Card hover state */
+  --orange-primary: #FF6B35;        /* Primary brand color */
+  --orange-dark: #d45a2b;           /* Darker orange for hover states */
+  --orange-light: #ff8c42;          /* Lighter orange for accents */
+  --orange-pale: #fff0e8;           /* Very light orange for text on dark */
+  --text-primary: #f8f9fa;          /* Primary text color */
+  --text-secondary: #e0e0e0;        /* Secondary text */
+  --text-muted: #a0a0a0;            /* Muted/disabled text */
+  --border-color: #333333;          /* Default borders */
+  --border-light: #424242;          /* Lighter borders */
+  --success-color: #4caf50;         /* Success messages */
+  --error-color: #f44336;           /* Error messages */
+  --warning-color: #ff9800;         /* Warning messages */
+  --info-color: #2196f3;            /* Info messages */
+
+  /* Typography */
+  --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-alt: 'Georgia', serif;      /* For book titles and headings */
+  --font-mono: 'Courier New', monospace; /* For code/pre elements */
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-orange: 0 0 8px rgba(255, 107, 53, 0.4);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ==================== BASE ELEMENTS ==================== */
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-alt);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--orange-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--orange-light);
+  text-decoration: underline;
+}
+
+/* Forms and Inputs */
+input, textarea, select {
+  background-color: var(--dark-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 4px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--orange-primary);
+  outline: none;
+  box-shadow: var(--shadow-orange);
+}
+
+button, .btn {
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+/* Utility Classes */
+.text-orange {
+  color: var(--orange-primary);
+}
+
+.bg-dark-card {
+  background-color: var(--dark-card);
+}
+
+.bg-darker {
+  background-color: var(--darker-bg);
+}
+
+.border-dark {
+  border: 1px solid var(--border-color);
+}
+
+.rounded {
+  border-radius: 6px;
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-scale {
+  transition: transform var(--transition-normal);
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--darker-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--orange-dark);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-primary);
+}
+
+/* Selection Color */
+::selection {
+  background-color: var(--orange-primary);
+  color: white;
+}
+
+/* Focus States */
+:focus-visible {
+  outline: 2px solid var(--orange-primary);
+  outline-offset: 2px;
+}
+
+/* ==================== LAYOUT UTILITIES ==================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-sm {
+  gap: var(--space-sm);
+}
+
+.gap-md {
+  gap: var(--space-md);
+}
+
+.gap-lg {
+  gap: var(--space-lg);
+}
+/* ==================== NAVIGATION ==================== */
+.navbar {
+  background-color: var(--darker-bg) !important;
+  border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+  padding: 0.8rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.navbar-brand i {
+  color: var(--orange-primary);
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover i {
+  transform: rotate(-15deg);
+}
+
+.nav-link {
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  width: 0;
+  height: 2px;
+  background-color: var(--orange-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: calc(100% - 2rem);
+}
+
+.dropdown-menu-dark {
+  background-color: var(--dark-card);
+  border: 1px solid var(--border-color);
+}
+
+.dropdown-item {
+  color: var(--text-secondary);
+  padding: 0.5rem 1.5rem;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 107, 53, 0.1);
+  color: var(--orange-primary);
+}
+
+/* ==================== BOOK DETAIL SECTION ==================== */
+.book-cover-container {
+  position: relative;
+  padding: 1.5rem;
+  background-color: var(--dark-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.main-book-cover {
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: auto;
+}
+
+.main-book-cover:hover {
+  transform: scale(1.02);
+}
+
+/* Book Badge */
+.book-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+  z-index: 1;
+}
+
+.book-badge.thriller {
+  background-color: #dc3545;
+}
+
+/* Action Buttons */
+.action-buttons .btn {
+  font-weight: 600;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.btn-orange {
+  background-color: var(--orange-primary);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-orange:hover {
+  background-color: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+}
+
+.btn-outline-orange {
+  border: 1px solid var(--orange-primary);
+  color: var(--orange-primary);
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-orange:hover {
+  background-color: var(--orange-primary);
+  color: white;
+}
+
+/* ==================== BOOK INFO ==================== */
+.book-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #f8f9fa; /* Crisp white */
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  font-family: 'Georgia', serif; /* More formal typeface */
+}
+
+.book-author {
+  font-size: 1.25rem;
+  color: #ced4da; /* Soft gray */
+  margin-bottom: 1.75rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.book-meta {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #2e2e2e; /* Dark gray border */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Rating Styles */
+.rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  color: #e9b949; /* Gold instead of orange for more formal look */
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+}
+
+.rating-value {
+  font-weight: 600;
+  color: #e9b949; /* Matching gold */
+  font-size: 1.1rem;
+}
+
+.rating-count {
+  color: #868e96; /* Medium gray */
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* Genre Tags */
+.genre-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.genre-tags .badge {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border-radius: 12px; /* More rounded */
+  background-color: #2e2e2e; /* Dark background */
+  color: #e9b949; /* Gold text */
+  border: 1px solid #3e3e3e; /* Subtle border */
+}
+
+/* Specific genre colors with muted tones */
+.bg-thriller {
+  background-color: #3a1a1a !important; /* Dark red */
+  color: #e9b949 !important;
+}
+
+.bg-mystery {
+  background-color: #1e1a3a !important; /* Dark blue */
+  color: #e9b949 !important;
+}
+
+.bg-psychological {
+  background-color: #1a3a2a !important; /* Dark green */
+  color: #e9b949 !important;
+}
+
+/* ==================== CONTENT SECTIONS ==================== */
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e9b949; /* Gold */
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 10px;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: #e9b949; /* Gold */
+  border-radius: 2px;
+}
+
+.synopsis-text {
+    color: #d1d1d1; /* Light gray with better visibility */
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* Details List */
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detail-list li {
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: #e9b949; /* Gold */
+  min-width: 110px;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.detail-value {
+  color: #adb5bd; /* Light gray */
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+/* Similar Books */
+.similar-books {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.similar-book-card {
+  background-color: var(--dark-card);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.similar-book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  border-color: var(--orange-primary);
+}
+
+.similar-book-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==================== FOOTER ==================== */
+/* ==================== FOOTER STYLES ==================== */
+.site-footer {
+    background-color: #1a1a1a;
+    color: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.footer-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.footer-wave .shape-fill {
+    fill: #121212;
+}
+
+.footer-main {
+    position: relative;
+    z-index: 1;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* Footer Branding */
+.footer-brand .logo-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: #FF6B35;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-brand .logo-icon-wrapper i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.footer-brand .logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.footer-tagline {
+    color: #adb5bd;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Newsletter Card */
+.newsletter-card {
+    background-color: #252525;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.newsletter-title {
+    color: #FF6B35;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.newsletter-form .form-control {
+    background-color: #333;
+    border: 1px solid #444;
+    color: white;
+    height: 45px;
+    font-size: 0.9rem;
+    border-radius: 6px 0 0 6px;
+}
+
+.newsletter-form .form-control:focus {
+    border-color: #FF6B35;
+    box-shadow: 0 0 0 0.25rem rgba(255, 107, 53, 0.25);
+}
+
+.btn-subscribe {
+    background-color: #FF6B35;
+    color: white;
+    border: none;
+    padding: 0 1.2rem;
+    border-radius: 0 6px 6px 0;
+    transition: all 0.3s ease;
+}
+
+.btn-subscribe:hover {
+    background-color: #d45a2b;
+}
+
+.newsletter-form .form-text {
+    color: #6c757d;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* Footer Links */
+.footer-links {
+    padding: 0 1rem;
+}
+
+.footer-heading {
+    color: #FF6B35;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-heading i {
+    font-size: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #ced4da;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #FF6B35;
+    transform: translateX(5px);
+}
+
+/* Contact Info */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+}
+
+.contact-item i {
+    color: #FF6B35;
+    margin-right: 10px;
+    margin-top: 3px;
+    font-size: 0.9rem;
+}
+
+.contact-item span {
+    color: #ced4da;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    color: #adb5bd;
+    background: rgba(255, 255, 255, 0.05);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.social-icon:hover {
+    color: white;
+    background: #FF6B35;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.85rem;
+}
+
+.copyright {
+    color: #6c757d;
+}
+
+.legal-links a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.85rem;
+}
+
+.legal-links a:hover {
+    color: #FF6B35;
+}
+
+.divider {
+    color: #6c757d;
+    margin: 0 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .footer-brand {
+        margin-bottom: 2rem;
+    }
+    
+    .newsletter-card {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-wave {
+        top: -50px;
+        height: 50px;
+    }
+    
+    .footer-links {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-bottom {
+        text-align: center;
+    }
+    
+    .legal-links {
+        margin-top: 0.5rem;
+    }
+    
+    .divider {
+        margin: 0 5px;
+    }
+}
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+@media (max-width: 992px) {
+  .book-title {
+    font-size: 1.8rem;
+  }
+  
+  .book-author {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-cover-container {
+    margin-bottom: 2rem;
+  }
+  
+  .section-heading {
+    font-size: 1.3rem;
+  }
+  
+  .book-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .book-title {
+    font-size: 1.6rem;
+  }
+  
+  .detail-list li {
+    flex-direction: column;
+  }
+  
+  .detail-label {
+    margin-bottom: 0.2rem;
+  }
+  
+  .footer-links a {
+    display: inline-block;
+  }
+}
+
+
+/* ==================== AUTHOR PAGE STYLES ==================== */
+.author-hero {
+  background-color: var(--dark-bg);
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.author-photo {
+  max-width: 300px;
+  border: 3px solid var(--orange-primary);
+  transition: transform 0.3s ease;
+}
+
+.author-photo:hover {
+  transform: scale(1.03);
+}
+
+.author-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.author-meta span {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-right: 1.5rem;
+}
+
+.author-meta i {
+  color: var(--orange-primary);
+  margin-right: 0.5rem;
+}
+
+.author-bio {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+.author-bio p {
+  margin-bottom: 1.2rem;
+}
+
+.author-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--dark-card);
+  color: var(--orange-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: var(--orange-primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Author Books Section */
+.author-books {
+  background-color: var(--darker-bg);
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--orange-primary);
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--orange-primary);
+}
+
+.book-card {
+  background-color: var(--dark-card);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: var(--orange-primary);
+}
+
+.book-cover {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.book-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  background-color: var(--orange-primary);
+}
+
+.book-badge.upcoming {
+  background-color: #20c997;
+}
+
+.book-info {
+  padding: 1.5rem;
+}
+
+.book-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.book-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.book-rating {
+  color: var(--orange-primary);
+}
+
+.btn-outline-orange {
+  border: 1px solid var(--orange-primary);
+  color: var(--orange-primary);
+  background-color: transparent;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.btn-outline-orange:hover {
+  background-color: var(--orange-primary);
+  color: white;
+}
+
+/* Author Quotes Section */
+.author-quotes {
+  background-color: rgba(30, 30, 30, 0.7);
+  padding: 4rem 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.quote-card {
+  background-color: var(--dark-card);
+  border-radius: 8px;
+  padding: 2rem;
+  height: 100%;
+  border-left: 4px solid var(--orange-primary);
+}
+
+.quote-text {
+  position: relative;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  font-style: italic;
+  padding: 0 1.5rem;
+}
+
+.quote-text i:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--orange-primary);
+  opacity: 0.3;
+  font-size: 2rem;
+}
+
+.quote-text i:last-child {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: var(--orange-primary);
+  opacity: 0.3;
+  font-size: 2rem;
+}
+
+.quote-source {
+  color: var(--orange-primary);
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* ==================== RESPONSIVE STYLES ==================== */
+@media (max-width: 992px) {
+  .author-name {
+    font-size: 2rem;
+  }
+  
+  .author-photo {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .author-hero {
+    text-align: center;
+  }
+  
+  .author-meta {
+    justify-content: center;
+  }
+  
+  .author-social {
+    justify-content: center;
+  }
+  
+  .author-photo {
+    margin: 0 auto 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .author-name {
+    font-size: 1.8rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .quote-text {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+
+/* ==================== GENRE PAGE STYLES ==================== */
+:root {
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --dark-card: #1e1e1e;
+    --border-color: #2e2e2e;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --orange-primary: #ff6b35;
+    --orange-secondary: #ff8c5a;
+    --orange-dark: #e05a28;
+    --orange-glow: rgba(255, 107, 53, 0.3);
+}
+
+/* Genre Listing Page */
+.genre-hero {
+    background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), 
+                url('../images/genre-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--orange-primary);
+}
+
+.genre-card {
+    display: block;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 200px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+}
+
+.genre-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+    z-index: 1;
+}
+
+.genre-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--orange-glow);
+    border-color: var(--orange-secondary);
+}
+
+.genre-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.genre-card h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--orange-primary);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.genre-card p {
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    color: var(--text-primary);
+}
+
+.book-count {
+    font-size: 0.9rem;
+    color: var(--orange-secondary);
+    font-weight: 500;
+}
+
+/* Genre-specific colors */
+.genre-card.thriller {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('../images/genre-thriller-bg.jpg') center/cover;
+}
+
+.genre-card.mystery {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('../images/genre-mystery-bg.jpg') center/cover;
+}
+
+.genre-card.romance {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('../images/genre-romance-bg.jpg') center/cover;
+}
+
+.genre-card.horror {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('../images/genre-horror-bg.jpg') center/cover;
+}
+
+.genre-card.fantasy {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('../images/genre-fantasy-bg.jpg') center/cover;
+}
+
+.genre-card.scifi {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('../images/genre-scifi-bg.jpg') center/cover;
+}
+
+/* Genre-Specific Page */
+.genre-page-hero {
+    padding: 5rem 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--orange-primary);
+}
+
+.genre-page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+    z-index: 1;
+}
+
+.genre-page-hero > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.thriller-hero {
+    background: url('../images/thriller-hero-bg.jpg') center/cover;
+}
+
+.genre-icon {
+    max-width: 200px;
+    filter: drop-shadow(0 0 10px var(--orange-glow));
+}
+
+.genre-stats {
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    background: rgba(30, 30, 30, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--orange-primary);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    color: var(--orange-primary);
+    text-shadow: 0 0 8px var(--orange-glow);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Book Filter */
+.book-filter {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--darker-bg);
+    padding: 1rem 0;
+}
+
+.filter-title {
+    color: var(--orange-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dark-select {
+    background-color: var(--dark-card);
+    border-color: var(--border-color);
+    color: white;
+    min-width: 180px;
+    transition: all 0.3s ease;
+}
+
+.dark-select:hover {
+    border-color: var(--orange-secondary);
+}
+
+.dark-select:focus {
+    border-color: var(--orange-primary);
+    box-shadow: 0 0 0 0.25rem var(--orange-glow);
+}
+
+/* Genre Books */
+.genre-books {
+    background-color: var(--dark-bg);
+}
+
+/* Author Cards */
+.author-card {
+    display: block;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: var(--dark-card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.author-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--orange-glow);
+    border-color: var(--orange-secondary);
+}
+
+.author-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--orange-primary);
+    margin: 0 auto 1rem;
+    box-shadow: 0 0 15px var(--orange-glow);
+}
+
+.author-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: var(--orange-primary);
+}
+
+.author-books {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Pagination */
+.pagination {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.page-link {
+    background-color: var(--dark-card);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.page-link:hover {
+    background-color: var(--orange-primary);
+    border-color: var(--orange-primary);
+    color: white;
+}
+
+.page-item.active .page-link {
+    background-color: var(--orange-primary);
+    border-color: var(--orange-primary);
+    font-weight: 600;
+}
+
+.page-item.disabled .page-link {
+    background-color: var(--darker-bg);
+    color: var(--border-color);
+}
+
+/* ==================== RESPONSIVE STYLES ==================== */
+@media (max-width: 992px) {
+    .genre-page-hero {
+        padding: 4rem 0;
+    }
+    
+    .genre-icon {
+        max-width: 150px;
+    }
+    
+    .stat-item {
+        padding: 0.8rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .genre-page-hero {
+        text-align: center;
+    }
+    
+    .genre-icon {
+        margin-top: 2rem;
+    }
+    
+    .book-filter .d-flex {
+        justify-content: center;
+    }
+    
+    .stat-item {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .genre-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .genre-content {
+        padding: 1.5rem;
+    }
+    
+    .author-photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .filter-title {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .dark-select {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+/* ==================== THRILLER GENRE PAGE SPECIFIC STYLES ==================== */
+/* Hero Section */
+.thriller-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('../images/thriller-bg.jpg') center/cover no-repeat;
+  padding: 6rem 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid #dc3545; /* Thriller red accent */
+}
+
+.thriller-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.thriller-hero .lead {
+  font-size: 1.25rem;
+  max-width: 700px;
+  opacity: 0.9;
+}
+
+/* Thriller-specific accent colors */
+.thriller-accent {
+  color: #dc3545 !important; /* Thriller red */
+}
+
+.bg-thriller-accent {
+  background-color: #dc3545 !important;
+}
+
+.border-thriller {
+  border-color: #dc3545 !important;
+}
+
+/* Book Cards - Thriller Style */
+.thriller-books .book-card {
+  border-left: 3px solid #dc3545;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.thriller-books .book-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(220, 53, 69, 0.15);
+}
+
+.thriller-books .book-badge {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Subgenre Navigation */
+.thriller-subgenres {
+  background-color: var(--darker-bg);
+  padding: 1rem 0;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.thriller-subgenres .nav-link {
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin: 0 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.thriller-subgenres .nav-link.active {
+  background-color: #dc3545;
+  color: white;
+}
+
+.thriller-subgenres .nav-link:hover:not(.active) {
+  color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* Thriller Features Section */
+.thriller-features {
+  background-color: #1a1a1a;
+  padding: 3rem 0;
+  border-top: 1px solid #2e2e2e;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.feature-card {
+  background-color: var(--dark-card);
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  border-top: 3px solid #dc3545;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card h3 {
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
+
+/* Thriller Newsletter */
+.thriller-newsletter {
+  background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), 
+              url('../images/thriller-newsletter-bg.jpg') center/cover;
+  padding: 4rem 0;
+}
+
+.thriller-newsletter .form-control {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #dc3545;
+  color: white;
+  height: 50px;
+}
+
+.thriller-newsletter .btn-subscribe {
+  background-color: #dc3545;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.thriller-newsletter .btn-subscribe:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+/* Thriller Testimonials */
+.thriller-testimonials .testimonial-card {
+  background-color: var(--dark-card);
+  border-radius: 8px;
+  padding: 2rem;
+  border-left: 3px solid #dc3545;
+}
+
+.thriller-testimonials .testimonial-text {
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.thriller-testimonials .testimonial-text::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 3rem;
+  color: #dc3545;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.thriller-testimonials .testimonial-author {
+  color: #dc3545;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .thriller-hero {
+    padding: 4rem 0;
+  }
+  
+  .thriller-hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .thriller-hero {
+    text-align: center;
+  }
+  
+  .thriller-hero .lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .thriller-subgenres .nav {
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .thriller-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .thriller-hero .lead {
+    font-size: 1.1rem;
+  }
+  
+  .thriller-books .book-card {
+    border-left: 2px solid #dc3545;
+  }
+}
+
+
+
+/* ==================== MYSTERY THEME VARIABLES ==================== */
+:root {
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --dark-card: #1e1e1e;
+    --border-color: #2e2e2e;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    
+    /* Mystery color palette */
+    --mystery-primary: #6a4c93;
+    --mystery-secondary: #8a5a44;
+    --mystery-dark: #4a2c68;
+    --mystery-light: #9d7fbf;
+    --mystery-glow: rgba(106, 76, 147, 0.3);
+    --mystery-unsolved: #d32f2f;
+    --mystery-solved: #388e3c;
+}
+
+/* ==================== MYSTERY HERO SECTION ==================== */
+.mystery-hero {
+    background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), 
+                url('../images/mystery-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid var(--mystery-primary);
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.15;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.text-highlight {
+    color: var(--mystery-primary);
+    text-shadow: 0 0 10px var(--mystery-glow);
+}
+
+/* ==================== MYSTERY STATS ==================== */
+.genre-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    background: rgba(30, 30, 30, 0.7);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--mystery-primary);
+    min-width: 120px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    color: var(--mystery-primary);
+    text-shadow: 0 0 8px var(--mystery-glow);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==================== MYSTERY CHALLENGE ==================== */
+.mystery-challenge .btn {
+    border: 1px solid var(--mystery-primary);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.mystery-challenge .btn:hover {
+    background: var(--mystery-primary);
+    box-shadow: 0 0 15px var(--mystery-glow);
+}
+
+.mystery-modal-content {
+    background: var(--dark-card);
+    border: 1px solid var(--mystery-primary);
+    color: white;
+}
+
+.mystery-modal-content .modal-header {
+    border-bottom: 1px solid var(--mystery-primary);
+}
+
+.mystery-modal-content .modal-footer {
+    border-top: 1px solid var(--mystery-primary);
+}
+
+.puzzle-text {
+    font-style: italic;
+    padding: 1rem;
+    background: rgba(106, 76, 147, 0.1);
+    border-left: 3px solid var(--mystery-primary);
+}
+
+.clue-btn {
+    background: var(--mystery-dark);
+    color: white;
+}
+
+.clue-btn:hover {
+    background: var(--mystery-primary);
+}
+
+.clue-reveal {
+    padding: 1rem;
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 5px;
+    display: none;
+}
+
+/* ==================== MYSTERY FILTER ==================== */
+.bg-mystery {
+    background-color: var(--mystery-primary) !important;
+}
+
+.btn-mystery {
+    background-color: var(--mystery-primary);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-mystery:hover {
+    background-color: var(--mystery-dark);
+    color: white;
+    box-shadow: 0 0 15px var(--mystery-glow);
+}
+
+.btn-outline-mystery {
+    color: var(--mystery-primary);
+    border-color: var(--mystery-primary);
+}
+
+.btn-outline-mystery:hover {
+    background-color: var(--mystery-primary);
+    color: white;
+}
+
+.dark-select:focus {
+    border-color: var(--mystery-primary);
+    box-shadow: 0 0 0 0.25rem var(--mystery-glow);
+}
+
+/* ==================== MYSTERY TABS ==================== */
+.mystery-tabs .nav-link {
+    color: var(--text-secondary);
+    border: none;
+    position: relative;
+    padding: 0.75rem 1.5rem;
+}
+
+.mystery-tabs .nav-link.active {
+    color: var(--mystery-primary);
+    background: transparent;
+}
+
+.mystery-tabs .nav-link.active:after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--mystery-primary);
+}
+
+.mystery-tabs .nav-link:hover:not(.active) {
+    color: var(--mystery-light);
+}
+
+/* ==================== MYSTERY BOOK CARDS ==================== */
+.book-card {
+    background: var(--dark-card);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--mystery-glow);
+    border-color: var(--mystery-primary);
+}
+
+.book-cover {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.book-info {
+    padding: 1.5rem;
+}
+
+.book-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.book-author {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.book-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stars {
+    color: var(--mystery-primary);
+}
+
+.rating-value {
+    font-weight: 600;
+}
+
+.book-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Mystery-specific book cards */
+.mystery-unsolved {
+    border-top: 3px solid var(--mystery-unsolved);
+}
+
+.mystery-solved {
+    border-top: 3px solid var(--mystery-solved);
+}
+
+.mystery-ribbon {
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    background: var(--mystery-unsolved);
+    color: white;
+    padding: 0.25rem 2rem;
+    transform: rotate(45deg);
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: center;
+    width: 120px;
+}
+
+.unsolved-text {
+    color: var(--mystery-unsolved);
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+.solved-text {
+    color: var(--mystery-solved);
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+/* ==================== MYSTERY PAGINATION ==================== */
+.mystery-pagination .page-link {
+    background: var(--dark-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.mystery-pagination .page-link:hover {
+    background: var(--mystery-primary);
+    color: white;
+    border-color: var(--mystery-primary);
+}
+
+.mystery-pagination .page-item.active .page-link {
+    background: var(--mystery-primary);
+    border-color: var(--mystery-primary);
+    font-weight: 600;
+}
+
+/* ==================== MYSTERY AUTHORS ==================== */
+.mystery-author {
+    background: var(--dark-card);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    height: 100%;
+}
+
+.mystery-author:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--mystery-glow);
+    border-color: var(--mystery-primary);
+}
+
+.author-photo-wrapper {
+    position: relative;
+    padding: 1.5rem 1.5rem 0;
+}
+
+.author-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 3px solid var(--mystery-primary);
+    display: block;
+}
+
+.author-mystery-fact {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--mystery-primary);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.author-quiz-btn {
+    position: absolute;
+    bottom: -15px;
+    right: 20px;
+    border-radius: 20px;
+}
+
+.author-info {
+    padding: 1.5rem;
+    padding-top: 1rem;
+}
+
+.author-name {
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.author-stats {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.author-books-preview {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.author-books-preview img {
+    width: 30px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 1px solid var(--border-color);
+}
+
+.author-books-preview span {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-left: auto;
+}
+
+/* ==================== MYSTERY CHALLENGE SECTION ==================== */
+.mystery-challenge-section {
+    background: linear-gradient(rgba(30, 30, 30, 0.9), rgba(30, 30, 30, 0.9)), 
+                url('../images/mystery-pattern.png');
+    background-size: cover;
+    border-top: 1px solid var(--mystery-primary);
+    border-bottom: 1px solid var(--mystery-primary);
+}
+
+.mystery-challenge-card {
+    background: var(--dark-card);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--mystery-primary);
+    box-shadow: 0 0 30px var(--mystery-glow);
+}
+
+.challenge-title {
+    color: var(--mystery-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.challenge-description {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.progress {
+    height: 30px;
+    background: var(--darker-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.challenge-image {
+    border-radius: 8px;
+    border: 1px solid var(--mystery-primary);
+    box-shadow: 0 0 30px var(--mystery-glow);
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* ==================== RESPONSIVE STYLES ==================== */
+@media (max-width: 992px) {
+    .genre-stats {
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 0.75rem 1rem;
+        min-width: 100px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        text-align: center;
+    }
+    
+    .genre-stats {
+        justify-content: center;
+    }
+    
+    .mystery-challenge .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .book-filter .d-flex {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .stat-item {
+        padding: 0.5rem;
+        min-width: 80px;
+    }
+    
+    .stat-number {
+        font-size: 1.25rem;
+    }
+    
+    .book-cover {
+        height: 200px;
+    }
+    
+    .author-photo {
+        height: 150px;
+    }
+}
+
+
+/* ==================== ROMANCE THEME VARIABLES ==================== */
+:root {
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --dark-card: #1e1e1e;
+    --border-color: #2e2e2e;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    
+    /* Romance color palette */
+    --romance-primary: #e83e8c;
+    --romance-secondary: #ff6b9e;
+    --romance-dark: #b52d6f;
+    --romance-light: #ff9ebf;
+    --romance-glow: rgba(232, 62, 140, 0.3);
+    --romance-featured: #9c27b0;
+    --romance-classic: #673ab7;
+}
+
+/* ==================== GLOBAL TYPOGRAPHY ==================== */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, .display-1, .display-2, .display-3, .display-4 {
+    font-family: 'Playfair Display', serif;
+}
+
+
+/* ==================== ROMANCE HERO SECTION ==================== */
+.romance-hero {
+    background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), 
+                url('../images/romance-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid var(--romance-primary);
+}
+
+.floral-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/floral-pattern.png');
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.text-romance {
+    color: var(--romance-primary);
+    text-shadow: 0 0 10px var(--romance-glow);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* ==================== ROMANCE STATS ==================== */
+.genre-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    background: rgba(30, 30, 30, 0.7);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--romance-primary);
+    min-width: 120px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--romance-glow);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    color: var(--romance-primary);
+    text-shadow: 0 0 8px var(--romance-glow);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==================== ROMANCE METER ==================== */
+.romance-meter {
+    background: rgba(30, 30, 30, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--romance-primary);
+    max-width: 400px;
+}
+
+.meter-title {
+    color: var(--romance-primary);
+    margin-bottom: 0.5rem;
+}
+
+.meter-title span {
+    font-weight: 600;
+}
+
+.progress {
+    height: 10px;
+    background: var(--darker-bg);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--romance-primary);
+}
+
+/* ==================== ROMANCE BOOK FILTER ==================== */
+.book-filter {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--darker-bg);
+}
+
+.filter-title {
+    color: var(--romance-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-romance {
+    background-color: var(--romance-primary);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-romance:hover {
+    background-color: var(--romance-dark);
+    color: white;
+    box-shadow: 0 0 15px var(--romance-glow);
+}
+
+.btn-outline-romance {
+    color: var(--romance-primary);
+    border-color: var(--romance-primary);
+}
+
+.btn-outline-romance:hover {
+    background-color: var(--romance-primary);
+    color: white;
+}
+
+.dark-select:focus {
+    border-color: var(--romance-primary);
+    box-shadow: 0 0 0 0.25rem var(--romance-glow);
+}
+
+/* ==================== ROMANCE TABS ==================== */
+.romance-tabs .nav-link {
+    color: var(--text-secondary);
+    border: none;
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.romance-tabs .nav-link.active {
+    color: var(--romance-primary);
+    background: transparent;
+}
+
+.romance-tabs .nav-link.active:after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--romance-primary);
+}
+
+.romance-tabs .nav-link:hover:not(.active) {
+    color: var(--romance-light);
+}
+
+/* ==================== ROMANCE BOOK CARDS ==================== */
+.book-card {
+    background: var(--dark-card);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--romance-glow);
+    border-color: var(--romance-primary);
+}
+
+.book-cover {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.book-info {
+    padding: 1.5rem;
+}
+
+.book-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-family: 'Playfair Display', serif;
+}
+
+.book-author {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.book-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.stars {
+    color: var(--romance-primary);
+}
+
+.rating-value {
+    font-weight: 600;
+}
+
+.romance-stats {
+    color: var(--romance-primary);
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+.book-tropes {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.trope-badge {
+    background: rgba(232, 62, 140, 0.2);
+    color: var(--romance-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    border: 1px solid var(--romance-primary);
+}
+
+.book-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Book Badges */
+.book-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--romance-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.heat-level {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(30, 30, 30, 0.8);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    border: 1px solid var(--romance-primary);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.heat-level[data-level="steamy"] {
+    color: #ff5252;
+    border-color: #ff5252;
+}
+
+.heat-level[data-level="sweet"] {
+    color: #4fc3f7;
+    border-color: #4fc3f7;
+}
+
+/* Special Romance Book Cards */
+.romance-featured {
+    border-top: 3px solid var(--romance-featured);
+}
+
+.romance-new {
+    border-top: 3px solid var(--romance-primary);
+}
+
+/* ==================== ROMANCE PAGINATION ==================== */
+.romance-pagination .page-link {
+    background: var(--dark-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.romance-pagination .page-link:hover {
+    background: var(--romance-primary);
+    color: white;
+    border-color: var(--romance-primary);
+}
+
+.romance-pagination .page-item.active .page-link {
+    background: var(--romance-primary);
+    border-color: var(--romance-primary);
+    font-weight: 600;
+}
+
+/* ==================== ROMANCE AUTHORS ==================== */
+.romance-author {
+    background: var(--dark-card);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    height: 100%;
+}
+
+.romance-author:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--romance-glow);
+    border-color: var(--romance-primary);
+}
+
+.author-photo-wrapper {
+    position: relative;
+    padding: 1.5rem 1.5rem 0;
+}
+
+.author-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 3px solid var(--romance-primary);
+    display: block;
+}
+
+.author-signature {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    opacity: 0.9;
+}
+
+.author-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--romance-classic);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.author-info {
+    padding: 1.5rem;
+    padding-top: 1rem;
+}
+
+.author-name {
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.author-stats {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.author-books-preview {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.author-books-preview img {
+    width: 30px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 1px solid var(--border-color);
+}
+
+.author-books-preview span {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-left: auto;
+}
+
+/* ==================== ROMANCE QUOTE SECTION ==================== */
+.romance-quote {
+    background: linear-gradient(rgba(30, 30, 30, 0.9), rgba(30, 30, 30, 0.9)), 
+                url('../images/quote-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border-top: 1px solid var(--romance-primary);
+    border-bottom: 1px solid var(--romance-primary);
+}
+
+.quote-card {
+    background: var(--dark-card);
+    padding: 3rem;
+    border-radius: 8px;
+    border: 1px solid var(--romance-primary);
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 0 30px var(--romance-glow);
+}
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.quote-text i:first-child {
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    color: var(--romance-primary);
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+.quote-text i:last-child {
+    position: absolute;
+    bottom: -2rem;
+    right: -1rem;
+    color: var(--romance-primary);
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+.quote-author {
+    text-align: center;
+    color: var(--romance-primary);
+    font-style: italic;
+    font-weight: 500;
+}
+
+.quote-floral {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 60px;
+    height: 60px;
+    background: url('../images/floral-icon.png') no-repeat;
+    background-size: contain;
+    opacity: 0.2;
+}
+
+/* ==================== ROMANCE NEWSLETTER ==================== */
+.romance-newsletter {
+    border-top: 1px solid var(--border-color);
+}
+
+.newsletter-content {
+    padding-right: 2rem;
+}
+
+.newsletter-title {
+    color: var(--romance-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+}
+
+.newsletter-text {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.newsletter-benefits {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.newsletter-benefits li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-primary);
+}
+
+.newsletter-benefits i {
+    color: var(--romance-primary);
+    width: 20px;
+    text-align: center;
+}
+
+.newsletter-form .form-control,
+.newsletter-form .form-select {
+    background: var(--dark-card);
+    border: 1px solid var(--border-color);
+    color: white;
+}
+
+.newsletter-form .form-control:focus,
+.newsletter-form .form-select:focus {
+    border-color: var(--romance-primary);
+    box-shadow: 0 0 0 0.25rem var(--romance-glow);
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.heartbeat {
+    animation: heartbeat 1.5s infinite;
+}
+
+/* ==================== RESPONSIVE STYLES ==================== */
+@media (max-width: 992px) {
+    .genre-stats {
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 0.75rem 1rem;
+        min-width: 100px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .quote-card {
+        padding: 2rem;
+    }
+    
+    .quote-text {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        text-align: center;
+    }
+    
+    .genre-stats {
+        justify-content: center;
+    }
+    
+    .romance-meter {
+        margin: 0 auto;
+    }
+    
+    .book-filter .d-flex {
+        justify-content: center;
+    }
+    
+    .newsletter-content {
+        padding-right: 0;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .newsletter-benefits {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .stat-item {
+        padding: 0.5rem;
+        min-width: 80px;
+    }
+    
+    .stat-number {
+        font-size: 1.25rem;
+    }
+    
+    .book-cover {
+        height: 200px;
+    }
+    
+    .author-photo {
+        height: 150px;
+    }
+    
+    .quote-card {
+        padding: 1.5rem;
+    }
+    
+    .quote-text {
+        font-size: 1.1rem;
+    }
+    
+    .quote-text i:first-child,
+    .quote-text i:last-child {
+        font-size: 2rem;
+    }
+}
+
+
+
+/* ==================== ALL GENRES VARIABLES ==================== */
+:root {
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --dark-card: #1e1e1e;
+    --border-color: #2e2e2e;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    
+    /* Genre-specific colors */
+    --thriller: #d32f2f;
+    --mystery: #6a4c93;
+    --romance: #e83e8c;
+    --fantasy: #388e3c;
+    --scifi: #1976d2;
+    --horror: #7b1fa2;
+    --historical: #f57c00;
+    --biography: #00796b;
+}
+
+/* ==================== GENRE EXPLORER HERO ==================== */
+.genre-explorer-hero {
+    background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), 
+                url('../images/genre-explorer-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.genre-icon-stack {
+    position: relative;
+    height: 300px;
+}
+
+.icon-circle {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.icon-circle.thriller {
+    background: var(--thriller);
+    top: 0;
+    left: 0;
+}
+
+.icon-circle.mystery {
+    background: var(--mystery);
+    top: 40px;
+    left: 40px;
+    z-index: 1;
+}
+
+.icon-circle.romance {
+    background: var(--romance);
+    top: 80px;
+    left: 80px;
+    z-index: 2;
+}
+
+.icon-circle.fantasy {
+    background: var(--fantasy);
+    top: 120px;
+    left: 120px;
+    z-index: 3;
+}
+
+.icon-circle:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* ==================== GENRE FILTER BAR ==================== */
+.genre-filter-bar {
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filter-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.btn-genre-filter {
+    background: var(--dark-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-genre-filter:hover {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.btn-genre-filter.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* ==================== GENRE GRID ==================== */
+.genre-card {
+    display: block;
+    height: 100%;
+    background: var(--dark-card);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    color: white;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.genre-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--genre-color, #666);
+}
+
+.genre-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.genre-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--genre-color, #666);
+    transition: all 0.3s ease;
+}
+
+.genre-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.genre-desc {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.genre-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.genre-stats .stat {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Genre-specific colors */
+.genre-card.thriller { --genre-color: var(--thriller); }
+.genre-card.mystery { --genre-color: var(--mystery); }
+.genre-card.romance { --genre-color: var(--romance); }
+.genre-card.fantasy { --genre-color: var(--fantasy); }
+.genre-card.scifi { --genre-color: var(--scifi); }
+.genre-card.horror { --genre-color: var(--horror); }
+.genre-card.historical { --genre-color: var(--historical); }
+.genre-card.biography { --genre-color: var(--biography); }
+
+/* ==================== GENRE QUIZ ==================== */
+.genre-quiz-section {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.quiz-content {
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: white;
+}
+
+.quiz-features {
+    list-style: none;
+    padding-left: 0;
+}
+
+.quiz-features li {
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.quiz-features i {
+    color: var(--primary);
+}
+
+.quiz-card {
+    background: var(--dark-card);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.quiz-question {
+    margin-bottom: 1.5rem;
+}
+
+.quiz-question h5 {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.quiz-question p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-quiz-option {
+    background: rgba(255,255,255,0.05);
+    color: white;
+    border: 1px solid var(--border-color);
+    white-space: nowrap;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.btn-quiz-option:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--primary);
+}
+
+/* ==================== TRENDING GENRES ==================== */
+.trending-genre-card {
+    background: var(--dark-card);
+    border-radius: 8px;
+    padding: 2rem;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid var(--genre-color, #666);
+}
+
+.trending-rank {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--genre-color, #666);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.trending-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.trending-stats {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.trending-stats span {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Trending genre colors */
+.trending-genre-card.thriller { --genre-color: var(--thriller); }
+.trending-genre-card.fantasy { --genre-color: var(--fantasy); }
+.trending-genre-card.romance { --genre-color: var(--romance); }
+
+/* ==================== LOAD MORE BUTTON ==================== */
+.btn-load-more {
+    transition: all 0.3s ease;
+    padding: 0.75rem 2rem;
+}
+
+.btn-load-more:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== RESPONSIVE STYLES ==================== */
+@media (max-width: 992px) {
+    .genre-icon-stack {
+        height: 200px;
+        margin-top: 2rem;
+    }
+    
+    .icon-circle {
+        width: 80px;
+        height: 80px;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .genre-filter-bar .d-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-label {
+        margin-bottom: 0.5rem;
+    }
+    
+    .quiz-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .genre-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .genre-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .genre-title {
+        font-size: 1.25rem;
+    }
+    
+    .trending-genre-card {
+        padding: 1.5rem;
+    }
+}
+
