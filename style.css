@@ -67,7 +67,55 @@ body {
             position: relative;
         }
 
-
+/* Genre Filter Styles */
+    .genre-filter {
+        padding: 20px 0;
+    }
+    
+    .genre-buttons {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 10px;
+    }
+    
+    .btn-group {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+    
+    .btn-genre {
+        background-color: #2c2c2c;
+        color: #e0e0e0;
+        border: 1px solid #444;
+        border-radius: 20px;
+        padding: 8px 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+    
+    .btn-genre:hover {
+        background-color: #444;
+        color: white;
+        transform: translateY(-2px);
+    }
+    
+    .btn-genre.active {
+        background-color: #e67e22;
+        color: white;
+        border-color: #e67e22;
+        box-shadow: 0 4px 8px rgba(230, 126, 34, 0.3);
+    }
+    
+    /* For mobile responsiveness */
+    @media (max-width: 768px) {
+        .btn-genre {
+            padding: 6px 15px;
+            font-size: 0.85rem;
+        }
+    }
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-alt);
@@ -3210,5 +3258,6 @@ h1, h2, h3, h4, .display-1, .display-2, .display-3, .display-4 {
         padding: 1.5rem;
     }
 }
+
 
 
