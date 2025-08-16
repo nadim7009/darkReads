@@ -8,8 +8,242 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Variables */
+        :root {
+            --dark-bg: #1a1a1a;
+            --darker-bg: #121212;
+            --light-text: #f8f9fa;
+            --secondary-text: #adb5bd;
+            --accent-color: #fd7e14;
+            --accent-hover: #ff922b;
+        }
+        
+        /* Base Styles */
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .bg-dark-orange {
+            background-color: var(--darker-bg); /* Changed from accent color to darker bg */
+        }
+        
+        .bg-dark-light {
+            background-color: var(--darker-bg);
+        }
+        
+        .btn-outline-orange {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .btn-outline-orange:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            border-bottom: 1px solid var(--accent-color);
+        }
+        
+        .navbar-brand {
+            color: var(--accent-color) !important; /* Force orange color for logo */
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: var(--light-text);
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link:focus {
+            color: var(--accent-color);
+        }
+        
+        .navbar-dark .navbar-toggler {
+            border-color: rgba(253, 126, 20, 0.5);
+        }
+        
+        /* Rest of your existing styles... */
+        /* Author Hero Section */
+        .author-hero {
+            padding: 3rem 0;
+        }
+        
+        .author-photo {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            aspect-ratio: 3/4;
+        }
+        
+        .author-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .author-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .author-meta span {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+        }
+        
+        .author-meta i {
+            margin-right: 0.5rem;
+        }
+        
+        .author-bio {
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .author-bio p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .author-social {
+            margin-top: 2rem;
+        }
+        
+        .author-social .social-icon {
+            color: var(--light-text);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+        
+        .author-social .social-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        /* Books Section */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .book-card {
+            background-color: var(--darker-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .book-cover {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .book-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .book-badge.upcoming {
+            background-color: #6c757d;
+        }
+        
+        .book-info {
+            padding: 1.5rem;
+        }
+        
+        .book-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .book-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+        
+        /* Quotes Section */
+        .quote-card {
+            background-color: rgba(253, 126, 20, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            height: 100%;
+        }
+        
+        .quote-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            position: relative;
+            padding: 0 1.5rem;
+        }
+        
+        .quote-text i:first-child {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.3;
+        }
+        
+        .quote-text i:last-child {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+        }
+        
+        .quote-source {
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+        
+       
+        
+    </style>
 </head>
 <body class="dark-theme">
     <!-- Navigation Bar -->
@@ -61,31 +295,32 @@
         </div>
     </nav>
 
+    <!-- Rest of your HTML remains the same... -->
     <!-- Author Hero Section -->
     <section class="author-hero py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4 text-center text-md-start">
-                    <img src="img11.jpg" 
+                    <img src="download (6).jpg" 
                          alt="Alex Michaelides" 
-                         class="img-fluid author-photo rounded shadow">
+                         class="img-fluid author-photo">
                 </div>
                 <div class="col-md-8 mt-4 mt-md-0">
                     <h1 class="author-name">Alex Michaelides</h1>
-                    <div class="author-meta d-flex flex-wrap align-items-center gap-3 my-3">
-                        <span class="author-nationality"><i class="fas fa-globe me-2"></i>British-Cypriot</span>
-                        <span class="author-genre"><i class="fas fa-tag me-2"></i>Psychological Thriller</span>
-                        <span class="author-birth"><i class="fas fa-birthday-cake me-2"></i>Born 1977</span>
+                    <div class="author-meta">
+                        <span class="author-nationality"><i class="fas fa-globe"></i>British-Cypriot</span>
+                        <span class="author-genre"><i class="fas fa-tag"></i>Psychological Thriller</span>
+                        <span class="author-birth"><i class="fas fa-birthday-cake"></i>Born 1977</span>
                     </div>
                     <div class="author-bio">
                         <p>Alex Michaelides is a bestselling author known for his gripping psychological thrillers. Born in Cyprus to a Greek-Cypriot father and English mother, he studied English literature at Cambridge University and psychotherapy at Harvard.</p>
                         <p>Before becoming a novelist, Michaelides worked as a screenwriter, and his experience in film storytelling is evident in his tightly plotted, cinematic novels.</p>
                     </div>
-                    <div class="author-social mt-4">
-                        <a href="#" class="social-icon me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon me-3"><i class="fab fa-goodreads"></i></a>
-                        <a href="#" class="social-icon"><i class="fas fa-globe"></i></a>
+                    <div class="author-social">
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Goodreads"><i class="fab fa-goodreads"></i></a>
+                        <a href="#" class="social-icon" aria-label="Website"><i class="fas fa-globe"></i></a>
                     </div>
                 </div>
             </div>
@@ -141,7 +376,7 @@
                     <div class="book-card h-100">
                         <div class="book-badge upcoming">Coming Soon</div>
                         <img src="download (5).jpg" 
-                             alt="New Book" 
+                             alt="The Fury" 
                              class="book-cover">
                         <div class="book-info">
                             <h3 class="book-title">The Fury</h3>
@@ -188,144 +423,148 @@
         </div>
     </section>
 
- <!-- ==================== MODERN FOOTER ==================== -->
-<footer class="site-footer">
-    <div class="footer-wave">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-        </svg>
-    </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        
+        <div class="footer-main py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Brand Column -->
+                    <div class="col-lg-4">
+                        <div class="footer-brand pe-lg-4">
+                            <a href="index.html" class="d-flex align-items-center mb-3 text-decoration-none">
+                                <div class="logo-icon-wrapper me-2">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <span class="logo-text">DarkReads</span>
+                            </a>
+                            <p class="footer-tagline mb-4">Immerse yourself in captivating stories that linger long after the last page.</p>
+                            
+                            <!-- Newsletter -->
+                            <div class="newsletter-card">
+                                <h5 class="newsletter-title">Join Our Reading Community</h5>
+                                <form class="newsletter-form">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Your email address" required>
+                                        <button class="btn btn-subscribe" type="submit">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                    <div class="form-text">Get weekly book recommendations</div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-8">
+                        <div class="row g-4">
+                            <!-- Explore Column -->
+                            <div class="col-sm-4">
+                                <div class="footer-links">
+                                    <h5 class="footer-heading">
+                                        <i class="fas fa-compass me-2"></i>Explore
+                                    </h5>
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="bookshelf.html">My Bookshelf</a></li>
+                                        <li><a href="#">New Releases</a></li>
+                                        <li><a href="#">Coming Soon</a></li>
+                                        <li><a href="#">Authors</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Genres Column -->
+                            <div class="col-sm-4">
+                                <div class="footer-links">
+                                    <h5 class="footer-heading">
+                                        <i class="fas fa-tags me-2"></i>Genres
+                                    </h5>
+                                    <ul>
+                                        <li><a href="#">Thriller</a></li>
+                                        <li><a href="#">Mystery</a></li>
+                                        <li><a href="#">Romance</a></li>
+                                        <li><a href="#">Horror</a></li>
+                                        <li><a href="#">Fantasy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Connect Column -->
+                            <div class="col-sm-4">
+                                <div class="footer-links">
+                                    <h5 class="footer-heading">
+                                        <i class="fas fa-link me-2"></i>Connect
+                                    </h5>
+                                    <div class="contact-info">
+                                        <div class="contact-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>Dhaka, Library City</span>
+                                        </div>
+                                        <div class="contact-item">
+                                            <i class="fas fa-envelope"></i>
+                                            <span>contact@darkreads.com</span>
+                                        </div>
+                                        <div class="contact-item">
+                                            <i class="fas fa-phone"></i>
+                                            <span>01617246308</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="social-links mt-3">
+                                        <a href="#" class="social-icon" aria-label="Facebook">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="social-icon" aria-label="Twitter">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="social-icon" aria-label="Instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="social-icon" aria-label="Goodreads">
+                                            <i class="fab fa-goodreads"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom py-3">
+            <div class="container">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <div class="copyright mb-2 mb-md-0">
+                        &copy; <span id="current-year">2023</span> DarkReads. All rights reserved.
+                    </div>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <span class="divider">•</span>
+                        <a href="#">Terms of Service</a>
+                        <span class="divider">•</span>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     
-    <div class="footer-main py-5">
-        <div class="container">
-            <div class="row g-4">
-                <!-- Brand Column -->
-                <div class="col-lg-4">
-                    <div class="footer-brand pe-lg-4">
-                        <a href="index.html" class="d-flex align-items-center mb-3 text-decoration-none">
-                            <div class="logo-icon-wrapper me-2">
-                                <i class="fas fa-book-open"></i>
-                            </div>
-                            <span class="logo-text">DarkReads</span>
-                        </a>
-                        <p class="footer-tagline mb-4">Immerse yourself in captivating stories that linger long after the last page.</p>
-                        
-                        <!-- Newsletter -->
-                        <div class="newsletter-card">
-                            <h5 class="newsletter-title">Join Our Reading Community</h5>
-                            <form class="newsletter-form">
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Your email address" required>
-                                    <button class="btn btn-subscribe" type="submit">
-                                        <i class="fas fa-paper-plane"></i>
-                                    </button>
-                                </div>
-                                <div class="form-text">Get weekly book recommendations</div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Links -->
-                <div class="col-lg-8">
-                    <div class="row g-4">
-                        <!-- Explore Column -->
-                        <div class="col-sm-4">
-                            <div class="footer-links">
-                                <h5 class="footer-heading">
-                                    <i class="fas fa-compass me-2"></i>Explore
-                                </h5>
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="bookshelf.html">My Bookshelf</a></li>
-                                    <li><a href="#">New Releases</a></li>
-                                    <li><a href="#">Coming Soon</a></li>
-                                    <li><a href="#">Authors</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Genres Column -->
-                        <div class="col-sm-4">
-                            <div class="footer-links">
-                                <h5 class="footer-heading">
-                                    <i class="fas fa-tags me-2"></i>Genres
-                                </h5>
-                                <ul>
-                                    <li><a href="#">Thriller</a></li>
-                                    <li><a href="#">Mystery</a></li>
-                                    <li><a href="#">Romance</a></li>
-                                    <li><a href="#">Horror</a></li>
-                                    <li><a href="#">Fantasy</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Connect Column -->
-                        <div class="col-sm-4">
-                            <div class="footer-links">
-                                <h5 class="footer-heading">
-                                    <i class="fas fa-link me-2"></i>Connect
-                                </h5>
-                                <div class="contact-info">
-                                    <div class="contact-item">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Dhaka, Library City</span>
-                                    </div>
-                                    <div class="contact-item">
-                                        <i class="fas fa-envelope"></i>
-                                        <span>contact@darkreads.com</span>
-                                    </div>
-                                    <div class="contact-item">
-                                        <i class="fas fa-phone"></i>
-                                        <span>01617246308</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="social-links mt-3">
-                                    <a href="#" class="social-icon" aria-label="Facebook">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a href="#" class="social-icon" aria-label="Twitter">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a href="#" class="social-icon" aria-label="Instagram">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                    <a href="#" class="social-icon" aria-label="Goodreads">
-                                        <i class="fab fa-goodreads"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-bottom py-3">
-        <div class="container">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                <div class="copyright mb-2 mb-md-0">
-                    &copy; <span id="current-year">2023</span> DarkReads. All rights reserved.
-                </div>
-                <div class="legal-links">
-                    <a href="#">Privacy Policy</a>
-                    <span class="divider">•</span>
-                    <a href="#">Terms of Service</a>
-                    <span class="divider">•</span>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="js/script.js"></script>
+    <script>
+        // Update copyright year automatically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
