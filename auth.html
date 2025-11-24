@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkReads | Authentication Required</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #1a1a1a;
+            --secondary-dark: #2d2d2d;
+            --accent-orange: #ff6b35;
+            --accent-orange-dark: #e55a2b;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #888888;
+            --card-bg: #252525;
+            --card-hover: #2f2f2f;
+            --border-color: #3a3a3a;
+            --error-color: #e74c3c;
+            --success-color: #2ecc71;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-orange) 0%, transparent 70%);
+            opacity: 0.05;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .bg-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 5s;
+        }
+
+        .bg-circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            left: 70%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        /* Navigation Bar */
+        .navbar-dark.bg-dark-orange {
+            background-color: var(--secondary-dark) !important;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar-brand {
+            color: var(--accent-orange) !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary) !important;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-orange) !important;
+        }
+
+        /* Auth Container */
+        .auth-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .auth-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            width: 100%;
+            max-width: 450px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .auth-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .auth-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent-orange-dark));
+        }
+
+        .auth-header {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .auth-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .auth-logo i {
+            font-size: 2.5rem;
+            margin-right: 0.5rem;
+            color: var(--accent-orange);
+        }
+
+        .auth-logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .auth-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .auth-tab.active {
+            color: var(--accent-orange);
+            border-bottom: 2px solid var(--accent-orange);
+        }
+
+        .auth-tab:hover:not(.active) {
+            color: var(--text-primary);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .auth-body {
+            padding: 2rem;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.12);
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+            color: var(--text-primary);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-icon {
+            position: absolute;
+            right: 15px;
+            top: 42px;
+            color: var(--text-muted);
+        }
+
+        .btn-orange {
+            background-color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-orange:hover {
+            background-color: var(--accent-orange-dark);
+            border-color: var(--accent-orange-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-orange {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+            background: transparent;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-outline-orange:hover {
+            background-color: var(--accent-orange);
+            color: white;
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: var(--text-muted);
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        .auth-divider span {
+            padding: 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .social-auth {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .auth-footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .auth-footer a {
+            color: var(--accent-orange);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .auth-footer a:hover {
+            color: var(--accent-orange-dark);
+            text-decoration: underline;
+        }
+
+        /* Modal Styles */
+        .auth-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-orange);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .modal-actions .btn {
+            flex: 1;
+        }
+
+        /* Alert Styles */
+        .alert {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .alert-error {
+            background-color: rgba(231, 76, 60, 0.2);
+            border: 1px solid var(--error-color);
+            color: var(--error-color);
+        }
+
+        .alert-success {
+            background-color: rgba(46, 204, 113, 0.2);
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--secondary-dark);
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        .footer-main {
+            padding: 3rem 0;
+        }
+
+        .footer-logo-icon {
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+        }
+
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .footer-tagline {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .footer-heading {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .footer-links a i {
+            font-size: 0.7rem;
+        }
+
+        .footer-contact p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-orange);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            background-color: var(--primary-dark);
+            border-top: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .footer-legal-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .footer-legal-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-legal-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .auth-card {
+                margin: 1rem;
+            }
+            
+            .social-auth {
+                flex-direction: column;
+            }
+            
+            .footer-legal-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+    </div>
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark-orange">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-book-open me-2"></i>DarkReads
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookDetails.html">Book Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookshelf.html">My Bookshelf</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="author.html">Author</a>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="coming_soon.html">Coming Soon</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-bs-toggle="dropdown">
+                            Genres
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="thriller.html">Thriller</a></li>
+                            <li><a class="dropdown-item" href="mystry.html">Mystery</a></li>
+                            <li><a class="dropdown-item" href="#">Romance</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="allGenres.html">All Genres</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <i class="fas fa-book-open"></i>
+                    <span class="auth-logo-text">DarkReads</span>
+                </div>
+                <p class="mb-0">Join our community of dark story enthusiasts</p>
+            </div>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            
+            <div class="auth-body">
+                <!-- Login Form -->
+                <form class="auth-form active" id="login-form">
+                    <div class="alert alert-error" id="login-error">
+                        Invalid email or password. Please try again.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="login-email" placeholder="Enter your email" required>
+                        <i class="fas fa-envelope form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="login-password" placeholder="Enter your password" required>
+                        <i class="fas fa-lock form-icon"></i>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="remember-me">
+                            <label class="form-check-label" for="remember-me">
+                                Remember me
+                            </label>
+                        </div>
+                        <a href="#" class="text-orange" id="forgot-password">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-orange mb-3">Log In</button>
+                    
+                    <div class="auth-divider">
+                        <span>or continue with</span>
+                    </div>
+                    
+                    <div class="social-auth">
+                        <button type="button" class="social-btn">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="social-btn">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Register Form -->
+                <form class="auth-form" id="register-form">
+                    <div class="alert alert-error" id="register-error">
+                        Please fill all fields correctly.
+                    </div>
+                    
+                    <div class="alert alert-success" id="register-success">
+                        Registration successful! You can now log in.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="register-name" placeholder="Enter your full name" required>
+                        <i class="fas fa-user form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="register-email" placeholder="Enter your email" required>
+                        <i class="fas fa-envelope form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="register-password" placeholder="Create a password" required>
+                        <i class="fas fa-lock form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-confirm" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="register-confirm" placeholder="Confirm your password" required>
+                        <i class="fas fa-lock form-icon"></i>
+                    </div>
+                    
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="agree-terms" required>
+                        <label class="form-check-label" for="agree-terms">
+                            I agree to the <a href="#" class="text-orange">Terms of Service</a> and <a href="#" class="text-orange">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-orange mb-3">Create Account</button>
+                    
+                    <div class="auth-divider">
+                        <span>or sign up with</span>
+                    </div>
+                    
+                    <div class="social-auth">
+                        <button type="button" class="social-btn">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="social-btn">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="auth-footer">
+                    By continuing, you agree to DarkReads' <a href="#">Terms of Service</a> and acknowledge you've read our <a href="#">Privacy Policy</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Authentication Required Modal -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Authentication Required</h5>
+                <button type="button" class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h4>Access Restricted</h4>
+                <p>You need to be logged in to access this page. Please sign in or create an account to continue.</p>
+                <div class="modal-actions">
+                    <button class="btn btn-outline-orange" id="modal-login-btn">Log In</button>
+                    <button class="btn btn-orange" id="modal-register-btn">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-main py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="footer-brand">
+                            <a href="#" class="d-flex align-items-center mb-3" id="footer-brand-link">
+                                <i class="fas fa-book-open footer-logo-icon me-2"></i>
+                                <span class="footer-logo-text">DarkReads</span>
+                            </a>
+                            <p class="footer-tagline">Where dark tales come to life. Discover your next obsession.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                        <h5 class="footer-heading">Explore</h5>
+                        <ul class="footer-links">
+                            <li><a href="#" data-page="index"><i class="fas fa-chevron-right me-2"></i>Home</a></li>
+                            <li><a href="#" data-page="bookshelf"><i class="fas fa-chevron-right me-2"></i>My Bookshelf</a></li>
+                            <li><a href="#" data-page="new-releases"><i class="fas fa-chevron-right me-2"></i>New Releases</a></li>
+                            <li><a href="#" data-page="coming-soon"><i class="fas fa-chevron-right me-2"></i>Coming Soon</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                        <h5 class="footer-heading">Genres</h5>
+                        <ul class="footer-links">
+                            <li><a href="#" data-page="thriller"><i class="fas fa-chevron-right me-2"></i>Thriller</a></li>
+                            <li><a href="#" data-page="mystery"><i class="fas fa-chevron-right me-2"></i>Mystery</a></li>
+                            <li><a href="#" data-page="romance"><i class="fas fa-chevron-right me-2"></i>Romance</a></li>
+                            <li><a href="#" data-page="horror"><i class="fas fa-chevron-right me-2"></i>Horror</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4">
+                        <h5 class="footer-heading">Connect</h5>
+                        <div class="footer-contact">
+                            <p><i class="fas fa-envelope me-2"></i> contact@darkreads.com</p>
+                            
+                            <div class="footer-social mt-4">
+                                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-goodreads"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom py-3">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0">&copy; <span id="current-year">2023</span> DarkReads. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <ul class="footer-legal-links mb-0">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+      <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Hill Cipher Implementation
+        class HillCipher {
+            constructor() {
+                this.mod = 26;
+                // Using a 2x2 key matrix for simplicity (must be invertible mod 26)
+                this.keyMatrix = [[3, 3], [2, 5]]; // Example key matrix
+                this.inverseKeyMatrix = [[15, 17], [20, 9]]; // Pre-calculated inverse
+            }
+
+            // Check if matrix is invertible (determinant coprime with 26)
+            isInvertible(matrix) {
+                const det = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+                return this.gcd(det, this.mod) === 1;
+            }
+
+            // Greatest Common Divisor
+            gcd(a, b) {
+                return b === 0 ? a : this.gcd(b, a % b);
+            }
+
+            // Modular inverse
+            modInverse(a, m) {
+                for (let x = 1; x < m; x++) {
+                    if ((a * x) % m === 1) return x;
+                }
+                return 1;
+            }
+
+            // Convert text to numerical vectors
+            textToNumbers(text) {
+                const cleaned = text.toUpperCase().replace(/[^A-Z]/g, '');
+                return cleaned.split('').map(char => char.charCodeAt(0) - 65);
+            }
+
+            // Convert numbers back to text
+            numbersToText(numbers) {
+                return numbers.map(num => {
+                    const adjusted = ((num % this.mod) + this.mod) % this.mod;
+                    return String.fromCharCode(adjusted + 65);
+                }).join('');
+            }
+
+            // Pad text to make length multiple of 2
+            padText(text) {
+                while (text.length % 2 !== 0) {
+                    text += 'X'; // Padding character
+                }
+                return text;
+            }
+
+            // Matrix multiplication for encryption/decryption
+            multiplyMatrixVector(matrix, vector) {
+                let result = [];
+                for (let i = 0; i < matrix.length; i++) {
+                    let sum = 0;
+                    for (let j = 0; j < vector.length; j++) {
+                        sum += matrix[i][j] * vector[j];
+                    }
+                    result.push(sum % this.mod);
+                }
+                return result;
+            }
+
+            // Encrypt text
+            encrypt(plaintext) {
+                const paddedText = this.padText(plaintext);
+                const numbers = this.textToNumbers(paddedText);
+                let encryptedNumbers = [];
+
+                for (let i = 0; i < numbers.length; i += 2) {
+                    const vector = [numbers[i], numbers[i + 1]];
+                    const encryptedVector = this.multiplyMatrixVector(this.keyMatrix, vector);
+                    encryptedNumbers.push(...encryptedVector);
+                }
+
+                return this.numbersToText(encryptedNumbers);
+            }
+
+            // Decrypt text
+            decrypt(ciphertext) {
+                const numbers = this.textToNumbers(ciphertext);
+                let decryptedNumbers = [];
+
+                for (let i = 0; i < numbers.length; i += 2) {
+                    const vector = [numbers[i], numbers[i + 1]];
+                    const decryptedVector = this.multiplyMatrixVector(this.inverseKeyMatrix, vector);
+                    decryptedNumbers.push(...decryptedVector);
+                }
+
+                return this.numbersToText(decryptedNumbers).replace(/X+$/, '');
+            }
+        }
+
+        // User authentication state
+        let isLoggedIn = false;
+        let registeredUsers = JSON.parse(localStorage.getItem('darkreads_users')) || [];
+        const hillCipher = new HillCipher();
+
+        // Check if user is already logged in
+        function checkAuthStatus() {
+            const currentUser = localStorage.getItem('darkreads_current_user');
+            if (currentUser) {
+                isLoggedIn = true;
+                // Redirect to main page if already logged in
+                window.location.href = 'index.html';
+            }
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuthStatus();
+            
+            // Tab switching functionality
+            const tabs = document.querySelectorAll('.auth-tab');
+            const forms = document.querySelectorAll('.auth-form');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding form
+                    forms.forEach(form => {
+                        form.classList.remove('active');
+                        if (form.id === `${targetTab}-form`) {
+                            form.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Form submission
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const loginError = document.getElementById('login-error');
+            const registerError = document.getElementById('register-error');
+            const registerSuccess = document.getElementById('register-success');
+            
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                
+                // Encrypt the password for comparison
+                const encryptedPassword = hillCipher.encrypt(password);
+                
+                // Check if user exists
+                const user = registeredUsers.find(u => u.email === email && u.encryptedPassword === encryptedPassword);
+                
+                if (user) {
+                    // Successful login
+                    localStorage.setItem('darkreads_current_user', JSON.stringify(user));
+                    isLoggedIn = true;
+                    
+                    // Show success message
+                    loginError.style.display = 'none';
+                    
+                    // Redirect to main page
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                } else {
+                    // Show error
+                    loginError.style.display = 'block';
+                    setTimeout(() => {
+                        loginError.style.display = 'none';
+                    }, 5000);
+                }
+            });
+            
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('register-name').value;
+                const email = document.getElementById('register-email').value;
+                const password = document.getElementById('register-password').value;
+                const confirmPassword = document.getElementById('register-confirm').value;
+                
+                // Hide previous messages
+                registerError.style.display = 'none';
+                registerSuccess.style.display = 'none';
+                
+                // Validation
+                if (password !== confirmPassword) {
+                    registerError.textContent = 'Passwords do not match.';
+                    registerError.style.display = 'block';
+                    return;
+                }
+                
+                if (registeredUsers.find(u => u.email === email)) {
+                    registerError.textContent = 'An account with this email already exists.';
+                    registerError.style.display = 'block';
+                    return;
+                }
+                
+                if (password.length < 6) {
+                    registerError.textContent = 'Password must be at least 6 characters long.';
+                    registerError.style.display = 'block';
+                    return;
+                }
+                
+                // Encrypt password using Hill Cipher
+                const encryptedPassword = hillCipher.encrypt(password);
+                
+                // Create new user
+                const newUser = {
+                    name: name,
+                    email: email,
+                    encryptedPassword: encryptedPassword,
+                    joinDate: new Date().toISOString(),
+                    originalPasswordLength: password.length // Store length for proper decryption
+                };
+                
+                registeredUsers.push(newUser);
+                localStorage.setItem('darkreads_users', JSON.stringify(registeredUsers));
+                
+                // Show success message
+                registerSuccess.style.display = 'block';
+                
+                // Clear form
+                registerForm.reset();
+                
+                // Switch to login tab after 2 seconds
+                setTimeout(() => {
+                    document.querySelector('[data-tab="login"]').click();
+                    document.getElementById('login-email').value = email;
+                }, 2000);
+            });
+            
+            // Test Hill Cipher functionality (for demonstration)
+            function testHillCipher() {
+                const testText = "HELLO";
+                console.log("Original:", testText);
+                
+                const encrypted = hillCipher.encrypt(testText);
+                console.log("Encrypted:", encrypted);
+                
+                const decrypted = hillCipher.decrypt(encrypted);
+                console.log("Decrypted:", decrypted);
+                
+                console.log("Test successful:", testText === decrypted);
+            }
+            
+            // Run test on page load
+            testHillCipher();
+            
+            // Modal functionality
+            const authModal = document.getElementById('auth-modal');
+            const closeModal = document.querySelector('.close-modal');
+            const modalLoginBtn = document.getElementById('modal-login-btn');
+            const modalRegisterBtn = document.getElementById('modal-register-btn');
+            
+            // Show modal when trying to access restricted content
+            document.querySelectorAll('a[data-page], #brand-link, #footer-brand-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    if (!isLoggedIn) {
+                        authModal.classList.add('active');
+                    }
+                });
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', function() {
+                authModal.classList.remove('active');
+            });
+            
+            // Modal buttons
+            modalLoginBtn.addEventListener('click', function() {
+                authModal.classList.remove('active');
+                document.querySelector('[data-tab="login"]').click();
+            });
+            
+            modalRegisterBtn.addEventListener('click', function() {
+                authModal.classList.remove('active');
+                document.querySelector('[data-tab="register"]').click();
+            });
+            
+            // Forgot password
+            document.getElementById('forgot-password').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Password reset functionality would be implemented here! A reset link would be sent to your email.');
+            });
+            
+            // Update copyright year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
